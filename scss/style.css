@@ -1,3 +1,15 @@
+body.start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.mainFace.start {
+  width: 504px;
+  height: 504px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,26 +17,23 @@
 }
 
 body {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #1e7062;
+  transition: all 0.4s ease;
 }
 
-#mainLogo {
+.mainFace {
   background-image: url(../img/emotions/normal.png);
   background-repeat: no-repeat;
-  background-size: auto;
-  width: 365px;
-  height: 502px;
+  background-size: contain;
+  width: 250px;
+  height: 250px;
   transition: all 0.4s ease;
   cursor: grab;
   animation: userShake 1s ease infinite;
   transform-origin: center;
 }
 
-#mainLogo:hover {
+.mainFace:hover {
   background-image: url(../img/emotions/looking.png);
   animation: none;
 }
