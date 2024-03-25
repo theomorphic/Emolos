@@ -12,6 +12,7 @@ body.start {
 
 .mainFace.wondering {
   background-image: url(../img/emotions/wondering.png);
+  animation: none;
 }
 
 * {
@@ -35,11 +36,6 @@ body {
   cursor: grab;
   animation: userShake 1s ease infinite;
   transform-origin: center;
-}
-
-.mainFace:hover {
-  background-image: url(../img/emotions/looking.png);
-  animation: none;
 }
 
 @keyframes userShake {

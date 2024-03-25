@@ -21,3 +21,14 @@ const body = document.getElementById("body");
 
 	}, 5000);
 })();
+
+//ускорение hover
+
+mainFace.onmouseover = hover;
+mainFace.onmouseout = noHover;
+function hover(){
+	mainFace.classList.add("wondering");
+};
+function noHover(){
+	mainFace.classList.remove("wondering");
+};
