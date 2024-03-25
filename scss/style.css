@@ -22,7 +22,7 @@ body {
 }
 
 .mainFace {
-  background-image: url(../img/emotions/normal.png);
+  background-image: url(../img/emotions/normal.svg);
   background-repeat: no-repeat;
   background-size: contain;
   width: 250px;
@@ -34,7 +34,7 @@ body {
 }
 
 .mainFace:hover {
-  background-image: url(../img/emotions/looking.png);
+  background-image: url(../img/emotions/looking.svg);
   animation: none;
 }
 
