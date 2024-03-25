@@ -3,10 +3,10 @@ const mainFace = document.getElementById("mainFace");
 
 const body = document.getElementById("body");
 
+
 (function(){
 	setTimeout(() => {
 		mainFace.classList.add("wondering");
-		// mainFace.style.backgroundImage = "url(../img/emotions/wondering.png)";
 	}, 2500);
 	setTimeout(() => {
 		body.classList.remove("start");
@@ -27,8 +27,9 @@ const body = document.getElementById("body");
 mainFace.onmouseover = hover;
 mainFace.onmouseout = noHover;
 function hover(){
-	mainFace.classList.add("wondering");
+	mainFace.classList.add("looking");
 };
 function noHover(){
-	mainFace.classList.remove("wondering");
+	mainFace.classList.remove("looking");
 };
+
