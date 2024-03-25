@@ -10,6 +10,10 @@ body.start {
   height: 504px;
 }
 
+.mainFace.wondering {
+  background-image: url(../img/emotions/wondering.png);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +26,7 @@ body {
 }
 
 .mainFace {
-  background-image: url(../img/emotions/normal.svg);
+  background-image: url(../img/emotions/normal.png);
   background-repeat: no-repeat;
   background-size: contain;
   width: 250px;
@@ -34,7 +38,7 @@ body {
 }
 
 .mainFace:hover {
-  background-image: url(../img/emotions/looking.svg);
+  background-image: url(../img/emotions/looking.png);
   animation: none;
 }
 
