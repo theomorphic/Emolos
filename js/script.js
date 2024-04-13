@@ -4,6 +4,20 @@ const mainFace = document.getElementById("mainFace");
 const body = document.getElementById("body");
 
 
+const losImages = [];
+function preloadImages() {
+    for (let i = 0; i < arguments.length; i++) {
+        losImages[i] = new Image();
+        losImages[i].src = preloadImages.arguments[i];
+    }
+}
+
+preloadImages(
+	"../img/emotions/blinking.png",
+	"../img/emotions/looking.png"
+)
+
+
 // (function(){
 // 	setTimeout(() => {
 // 		mainFace.classList.add("wondering");
