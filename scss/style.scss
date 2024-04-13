@@ -15,6 +15,93 @@ body{
 }
 
 
+.tank{
+	border: 25px solid rgb(94, 182, 241);;
+	padding: 15px 0;
+	border-radius: 8px;
+	// background-color: #66bbf3;
+	background: rgb(107,188,241);
+	background: linear-gradient(90deg, rgba(107,188,241,1) 12%, rgba(102,187,243,1) 100%);
+	clip-path: polygon(20% 0, 77% 0, 89% 2%, 96% 8%, 100% 18%, 100% 100%, 0 100%, 0 23%, 2% 12%, 10% 4%);
+	position: relative;
+
+	.bubble{
+		position: absolute;
+		top: 5%;
+		left: 10%;
+		width: 20px;
+		height: 20px;
+		background: rgb(171,215,244);
+		background: linear-gradient(90deg, rgba(171,215,244,1) 12%, rgba(154,211,248,1) 100%);
+		border-radius: 50%;
+		animation: bubbleShake 3.4s ease infinite;
+		border: 2px solid rgb(153, 208, 245);
+
+	}
+
+	.bubble2{
+		position: absolute;
+		top: 30%;
+		left: 4%;
+		width: 30px;
+		height: 30px;
+		background: rgb(171,215,244);
+		background: linear-gradient(90deg, rgba(171,215,244,1) 12%, rgba(154,211,248,1) 100%);
+		border-radius: 50%;
+		animation: bubbleShake2 5s ease infinite;
+		border: 2px solid rgb(153, 208, 245);
+		clip-path: polygon(100% 50%,90.45% 79.39%,65.45% 97.55%,34.55% 97.55%,9.55% 79.39%,0% 50%,9.55% 20.61%,34.55% 2.45%,65.45% 2.45%,90.45% 20.61%);
+
+	}
+	
+	.bubble3{
+		position: absolute;
+		top: 80%;
+		right: 10%;
+		width: 44px;
+		height: 44px;
+
+		background: rgb(171,215,244);
+		background: linear-gradient(90deg, rgba(171,215,244,1) 12%, rgba(154,211,248,1) 100%);
+		border-radius: 50%;
+		animation: bubbleShake 5s ease infinite;
+		border: 2px solid rgb(153, 208, 245);
+		clip-path: polygon(100% 50%,95.68% 70.34%,83.46% 87.16%,65.45% 97.55%,44.77% 99.73%,25% 93.3%,9.55% 79.39%,1.09% 60.4%,1.09% 39.6%,9.55% 20.61%,25% 6.7%,44.77% 0.27%,65.45% 2.45%,83.46% 12.84%,95.68% 29.66%);
+
+	}
+
+	.bubble4{
+		position: absolute;
+		top: 80%;
+		left: 2%;
+		width: 66px;
+		height: 66px;
+		background: rgb(171,215,244);
+		background: linear-gradient(90deg, rgba(171,215,244,1) 12%, rgba(154,211,248,1) 100%);
+		border-radius: 50%;
+		animation: bubbleShake2 4s ease infinite;
+		border: 2px solid rgb(153, 208, 245);
+		clip-path: polygon(100% 50%,97.29% 66.23%,89.46% 80.71%,77.35% 91.86%,62.27% 98.47%,45.87% 99.83%,29.92% 95.79%,16.14% 86.79%,6.03% 73.8%,0.68% 58.23%,0.68% 41.77%,6.03% 26.2%,16.14% 13.21%,29.92% 4.21%,45.87% 0.17%,62.27% 1.53%,77.35% 8.14%,89.46% 19.29%,97.29% 33.77%);
+
+	}
+
+	.bubble5{
+		position: absolute;
+		top: 2%;
+		right: 6%;
+		width: 34px;
+		height: 34px;
+
+		background: rgb(171,215,244);
+		background: linear-gradient(90deg, rgba(171,215,244,1) 12%, rgba(154,211,248,1) 100%);
+		border-radius: 50%;
+		border-radius: 50%;
+		animation: bubbleShake 3s ease infinite;
+		border: 2px solid rgb(153, 208, 245);
+		clip-path: polygon(100% 50%,97.29% 66.23%,89.46% 80.71%,77.35% 91.86%,62.27% 98.47%,45.87% 99.83%,29.92% 95.79%,16.14% 86.79%,6.03% 73.8%,0.68% 58.23%,0.68% 41.77%,6.03% 26.2%,16.14% 13.21%,29.92% 4.21%,45.87% 0.17%,62.27% 1.53%,77.35% 8.14%,89.46% 19.29%,97.29% 33.77%);
+
+	}
+}
 
 .mainFace{
 	background-image: url(../img/emotions/normal.png);
@@ -24,20 +111,30 @@ body{
 	height: 250px;
 	transition: all .4s ease;
 	cursor:grab;	
-	animation: userShake 1s ease infinite;
+	animation: losShake 1.2s ease infinite;
 	transform-origin: center;
 
 
 }
 
 
-// .mainFace:hover{
-// 	background-image: url(../img/emotions/looking.png);
-// 	animation: none;
-// }
 
-@keyframes userShake {
+
+@keyframes losShake {
 	50%{
 		transform: rotate(1.5deg);
+	}
+}
+
+@keyframes bubbleShake {
+	50%{
+		transform: scale(1) translate(20%, 60%);
+	}
+}
+
+@keyframes bubbleShake2 {
+	50%{
+		transform: scale(1) translate(55%, 34%);
+
 	}
 }
