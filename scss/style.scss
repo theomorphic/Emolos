@@ -16,15 +16,16 @@ body{
 
 
 .tank{
-	border: 25px solid rgb(94, 182, 241);;
-	padding: 15px 0;
+	border: 10px solid rgb(52, 159, 231);
+
+	padding: 30px 0 10px 0;
 	border-radius: 8px;
 	// background-color: #66bbf3;
 	background: rgb(107,188,241);
 	background: linear-gradient(90deg, rgba(107,188,241,1) 12%, rgba(102,187,243,1) 100%);
 	clip-path: polygon(20% 0, 77% 0, 89% 2%, 96% 8%, 100% 18%, 100% 100%, 0 100%, 0 23%, 2% 12%, 10% 4%);
 	position: relative;
-
+	clip-path: polygon(46% 4%, 77% 4%, 100% 3%, 100% 24%, 100% 100%, 0 100%, 0 3%, 11% 4%);
 	.bubble{
 		position: absolute;
 		top: 5%;
