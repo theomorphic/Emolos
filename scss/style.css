@@ -19,6 +19,10 @@ body.start {
   background-image: url(../img/emotions/wondering.png);
 }
 
+.mainFace.blinking {
+  background-image: url(../img/emotions/blinking.png);
+}
+
 * {
   margin: 0;
   padding: 0;
