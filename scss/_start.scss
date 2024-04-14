@@ -7,20 +7,6 @@ body.start{
 
 }
 
-
-.mainFace.start{ 
-	width: 504px;
-	height: 504px;
-}
-
-.mainFace.looking{
-	background-image: url(../img/emotions/looking.png);
-
-
-	animation: none;
-
-}
-
 .mainFace.wondering{
 	background-image: url(../img/emotions/wondering.png);
 
@@ -30,4 +16,5 @@ body.start{
 	background-image: url(../img/emotions/blinking.png);
 
 }
+
 

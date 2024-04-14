@@ -5,16 +5,6 @@ body.start {
   height: 100vh;
 }
 
-.mainFace.start {
-  width: 504px;
-  height: 504px;
-}
-
-.mainFace.looking {
-  background-image: url(../img/emotions/looking.png);
-  animation: none;
-}
-
 .mainFace.wondering {
   background-image: url(../img/emotions/wondering.png);
 }
@@ -40,8 +30,6 @@ body {
   border-radius: 8px;
   background: rgb(107, 188, 241);
   background: linear-gradient(90deg, rgb(107, 188, 241) 12%, rgb(102, 187, 243) 100%);
-  -webkit-clip-path: polygon(20% 0, 77% 0, 89% 2%, 96% 8%, 100% 18%, 100% 100%, 0 100%, 0 23%, 2% 12%, 10% 4%);
-          clip-path: polygon(20% 0, 77% 0, 89% 2%, 96% 8%, 100% 18%, 100% 100%, 0 100%, 0 23%, 2% 12%, 10% 4%);
   position: relative;
   -webkit-clip-path: polygon(46% 4%, 77% 4%, 100% 3%, 100% 24%, 100% 100%, 0 100%, 0 3%, 11% 4%);
           clip-path: polygon(46% 4%, 77% 4%, 100% 3%, 100% 24%, 100% 100%, 0 100%, 0 3%, 11% 4%);
@@ -117,11 +105,18 @@ body {
 }
 
 .mainFace {
-  background-image: url(../img/emotions/normal.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 250px;
-  height: 250px;
+  width: 504px;
+  height: 504px;
+  transition: all 0.4s ease;
+  cursor: grab;
+  animation: losShake 1.2s ease infinite;
+  transform-origin: center;
+}
+
+.mainFaceBlinking {
+  display: none;
+  width: 504px;
+  height: 504px;
   transition: all 0.4s ease;
   cursor: grab;
   animation: losShake 1.2s ease infinite;

@@ -1,5 +1,8 @@
 
 const mainFace = document.getElementById("mainFace");
+const mainFaceLooking = document.getElementById("mainFaceLooking");
+const mainFaceBlinking = document.getElementById("mainFaceBlinking");
+
 
 const body = document.getElementById("body");
 
@@ -24,25 +27,35 @@ const body = document.getElementById("body");
 
 //ускорение hover
 
-mainFace.onmouseover = hover;
-mainFace.onmouseout = noHover;
-function hover(){
-	mainFace.classList.add("looking");
-};
-function noHover(){
-	mainFace.classList.remove("looking");
-};
+// mainFace.onmouseover = hover;
+// mainFaceLooking.onmouseout = noHover;
+// function hover(){
+// 	mainFace.style.display = "none";
+// 	mainFaceLooking.style.display = "block";
+
+
+// };
+// function noHover(){
+// 	mainFace.style.display = "block";
+// 	mainFaceLooking.style.display = "none";
+// 	mainFaceBlinking.style.display = "none";
+
+// };
 
 function blinking(){
 
 	setInterval(() => {
 		setTimeout(() => {
-			mainFace.classList.add("blinking");
+			mainFace.style.display = "none";
+			mainFaceBlinking.style.display = "block";
+
 		}, 2000);
 		setTimeout(() => {
-			mainFace.classList.remove("blinking");
-		}, 2260);
-	}, 3500);
+			mainFace.style.display = "block";
+			mainFaceBlinking.style.display = "none";
+
+		}, 2200); 
+	}, 5500);
 }
 
 
