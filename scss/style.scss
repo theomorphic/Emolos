@@ -1,4 +1,5 @@
 
+@import "./_emotions.scss";
 
 $losRed: #7c2c2d;
 $losBianca: #fefcfb;
@@ -38,11 +39,7 @@ body{
 	height: 50vh;
 	overflow: auto;
 	border: 1px solid #c7c7c7;
-	box-shadow: none;
-	// background-color: $losWhite;
-	
-
-
+	box-shadow: none;	
 }
 
 
@@ -60,6 +57,9 @@ h1{
 	background-color: $losBeige;
 	border-radius: 3px;
 	box-shadow: 0 0 5px 0 #00000044;
+	overflow: hidden;
+	max-height: 170px;
+
 
 	.bio{
 		display: inherit;
@@ -69,19 +69,24 @@ h1{
 		gap: 20px;
 	}
 
-	.pfp{
+	.pfpBox{
+		display: block;
+		animation: losShake 1.2s ease infinite;
 		margin: 10px;
-		max-width: 150px;
 
-		// border: 3px solid #000;
-		// border-radius: 3px;
+		.pfp{
+			max-width: 150px;
+			overflow: hidden;
+
+
+		}
 	}
 
 	.name{
 		margin: 10px;
 	}
 
-	.online{
+	.status{
 		color: $losRed;
 		font-weight: bold;
 		margin-left: 10px;
@@ -95,9 +100,27 @@ h1{
 		justify-content: center;
 		align-items: center;
 		margin: 10px;
+		gap: 5px;
 
 		.mods-choices{
-			gap: 30px;
+
+			display: flex;
+			gap: 25px;
+			list-style: none;
+			transition: 0.5s;
+			
+			li{
+				padding: 2px 7px;
+				border-radius: 3px;
+				cursor: pointer;
+				transition: 0.5s;
+			}
+
+			li.active{
+				color: $losBianca;
+				background-color: $losRed;
+				box-shadow: 0 0 5px 0 #00000044;
+			}
 		}
 		
 	}
@@ -119,7 +142,7 @@ a{
 
 	.input{
 		border: 1px solid #c7c7c7;
-		width: 90%;
+		width: 88%;
 		padding: 10px;
 		border-radius: 3px;
 		box-shadow: 0 0 5px 0 #00000044;
@@ -129,13 +152,13 @@ a{
 	}
 
 	#sendBtn{
-		color: #fff;
+		color: $losBianca;
 		background-color: $losRed;
 		border: none;
-		font-size: 17px;
-		margin-left: 10px;
+		font-size: 20px;
 		box-shadow: 0 0 5px 0 #00000044;
 		margin-left: 10px;
+		border-radius: 3px;
 	
 	}
 	
@@ -155,4 +178,10 @@ a{
 	float: right;
 	background-color: $losRed;
 	color: #fff;
+}
+
+@keyframes losShake {
+	50%{
+		transform: rotate(1.5deg);
+	}
 }

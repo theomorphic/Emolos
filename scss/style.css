@@ -1,3 +1,15 @@
+#basicFace {
+  display: block;
+}
+
+#originalFace {
+  display: none;
+}
+
+#blinkingFace {
+  display: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -46,6 +58,8 @@ h1 {
   background-color: #f5f2ea;
   border-radius: 3px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2666666667);
+  overflow: hidden;
+  max-height: 170px;
 }
 .media .bio {
   display: inherit;
@@ -54,14 +68,19 @@ h1 {
   align-items: center;
   gap: 20px;
 }
-.media .pfp {
+.media .pfpBox {
+  display: block;
+  animation: losShake 1.2s ease infinite;
   margin: 10px;
+}
+.media .pfpBox .pfp {
   max-width: 150px;
+  overflow: hidden;
 }
 .media .name {
   margin: 10px;
 }
-.media .online {
+.media .status {
   color: #7c2c2d;
   font-weight: bold;
   margin-left: 10px;
@@ -72,9 +91,24 @@ h1 {
   justify-content: center;
   align-items: center;
   margin: 10px;
+  gap: 5px;
 }
 .media .mods .mods-choices {
-  gap: 30px;
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  transition: 0.5s;
+}
+.media .mods .mods-choices li {
+  padding: 2px 7px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.media .mods .mods-choices li.active {
+  color: #fefcfb;
+  background-color: #7c2c2d;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2666666667);
 }
 
 a {
@@ -92,20 +126,20 @@ a {
 }
 .input-group .input {
   border: 1px solid #c7c7c7;
-  width: 90%;
+  width: 88%;
   padding: 10px;
   border-radius: 3px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2666666667);
   background-color: #f5f2ea;
 }
 .input-group #sendBtn {
-  color: #fff;
+  color: #fefcfb;
   background-color: #7c2c2d;
   border: none;
-  font-size: 17px;
-  margin-left: 10px;
+  font-size: 20px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2666666667);
   margin-left: 10px;
+  border-radius: 3px;
 }
 
 .botMessage {
@@ -122,4 +156,10 @@ a {
   float: right;
   background-color: #7c2c2d;
   color: #fff;
+}
+
+@keyframes losShake {
+  50% {
+    transform: rotate(1.5deg);
+  }
 }/*# sourceMappingURL=style.css.map */
