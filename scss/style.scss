@@ -1,5 +1,8 @@
 
+
 $losRed: #7c2c2d;
+$losBianca: #fefcfb;
+$losBeige: #f5f2ea;
 
 *{
 	margin: 0;
@@ -13,8 +16,11 @@ body{
 	align-items: center;
 	justify-content: center;
 	font-size: 20px;
-	background-color: #1e7062;
 	transition: all .4s ease;
+	background-color: #1e7062;
+	background-image: url("../img/bg.png");
+	background-size: cover;
+	background-position: center;
 
 }
 
@@ -24,6 +30,8 @@ body{
 	border: 2px solid #000;
 	padding: 20px;
 	box-shadow: 0 10px 5px 0 #00000044;
+	background-color: $losBianca;
+
 }
 
 .chat-container{
@@ -31,6 +39,8 @@ body{
 	overflow: auto;
 	border: 1px solid #c7c7c7;
 	box-shadow: none;
+	// background-color: $losWhite;
+	
 
 
 }
@@ -47,7 +57,7 @@ h1{
 	justify-content: space-between;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	background-color: #d3ebf3;
+	background-color: $losBeige;
 	border-radius: 3px;
 	box-shadow: 0 0 5px 0 #00000044;
 
@@ -61,8 +71,9 @@ h1{
 
 	.pfp{
 		margin: 10px;
-		// border: 3px solid #000;
 		max-width: 150px;
+
+		// border: 3px solid #000;
 		// border-radius: 3px;
 	}
 
@@ -75,6 +86,20 @@ h1{
 		font-weight: bold;
 		margin-left: 10px;
 
+	}
+
+	.mods{
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 10px;
+
+		.mods-choices{
+			gap: 30px;
+		}
+		
 	}
 
 }
@@ -98,6 +123,8 @@ a{
 		padding: 10px;
 		border-radius: 3px;
 		box-shadow: 0 0 5px 0 #00000044;
+		background-color: $losBeige;
+
 
 	}
 
@@ -109,16 +136,9 @@ a{
 		margin-left: 10px;
 		box-shadow: 0 0 5px 0 #00000044;
 		margin-left: 10px;
-
-
 	
 	}
 	
-	.btn:hover{
-		background-color: $losRed;
-		color: #fff;
-	
-	}
 }
 
 .botMessage{
