@@ -160,42 +160,25 @@ export {smalltalk};
 //small talk
 
 const quotes = [
-	"Всё проходит",
-	"Я развился, а ты нет, хотя пыхтишь",
-
+	"Сила – не в бабках. Ведь бабки – уже старые",
+	"Я живу, как карта ляжет. Ты живёшь, как мамка скажет",
+	"Если заблудился в лесу, иди домой",
+	"Запомни: всего одна ошибка – и ты ошибся",
+	"В жизни всегда есть две дороги: одна — первая, а другая — вторая",
+	"Мы должны оставаться мыми, а они – оними",
+	"Работа — это не волк. Работа — ворк. А волк — это ходить",
+	"Как говорил мой дед, «Я твой дед»",
+	"Без подошвы тапочки — это просто тряпочки",
+	"Жи-ши пиши от души",
 ]
 export{quotes}
 const quotesAsking = [
-	"advice", "advices",
-	"tip", "tips",
-	"suggestion", "suggestions",
-	"quote", "quotes",
-	"hint", "hints",
-	"recommendation", "recommendations",
-	"guidance", "guidances",
-	"clue", "clues",
-	"motivation",
-	"depressiv",
-	"depression",
-	"quotation",
-	"wisdom",
-	"proverb",
-	"saying",
-	"exhortation",
-	"instruction",
-	"moral",
-	"morality",
-	"ethics",
-	"ethic",
-	"ethical",
-	"experience",
-	"sophistication",
-	"reasoning",
-	"discourse",
-	"sermon",
-	"preaching",
-	"gospel",
-	"preachment",
+	"цитата","цитаты","цитат","цитате","цитатам","цитату","цитатой","цитатою","цитатами","цитатах",
+	"совет","советы","совета","советов","совету","советам","советом","советами","совете","советах",
+	"поговорка","поговорки","поговорок","поговорке","поговоркам","поговорку","поговоркой","поговоркою","поговорками","поговорках",
+	"наставление","наставления","наставлений","наставлению","наставлениям","наставлением","наставлениями","наставлении","наставлениях",
+	"мотивация","мотивации","мотиваций","мотивациям","мотивацию","мотивацией","мотивациею","мотивациями", "мотивациях",
+	"мудрость", "мудрости","мудростей","мудростями","мудростью","мудростях",
 ]
 export{quotesAsking}
 //длинные цитаты-наставления
@@ -369,7 +352,6 @@ const agreeWords = [
 	"ага",
 	"угу",
 	"ну да",
-	"наверняка",
 	"конечно",
 	"ок",
 	"хорошо",
@@ -379,8 +361,6 @@ const agreeWords = [
 	"круто",
 	"естественно",
 	"отлично",
-	"нормально",
-	"прекрасно",
 ]
 export{agreeWords}
 //слова согласия, как короткие, так и отдельные фразы
@@ -394,56 +374,14 @@ const disagreeWords = [
 export{disagreeWords}
 //слова несогласия, как короткие, так и отдельные фразы
 const introductoryWords = [
-	"accordingly",
-	"additionally",
-	"after all",
-	"alas",
-	"as a result",
-	"be that as it may",
-	"behold",
-	"besides",
-	"certainly",
-	"consequently",
-	"correspondingly",
-	"despite this",
-	"equally",
-	"finally",
-	"first of all",
-	"for example",
-	"furthermore",
-	"hence",
-	"hitherto",
-	"however",
-	"in addition",
-	"in conclusion",
-	"in fact",
-	"in short",
-	"in spite of",
-	"indeed",
-	"instead",
-	"likewise",
-	"meanwhile",
-	"moreover",
-	"namely",
-	"nevertheless",
-	"next",
-	"nonetheless",
-	"notwithstanding",
-	"on the contrary",
-	"on the one hand",
-	"on the other hand",
-	"otherwise",
-	"similarly",
-	"subsequently",
-	"therefore",
-	"thus",
-	"to begin with",
-	"to conclude",
-	"to sum up",
-	"truly",
-	"undoubtedly",
-	"verily",
-	"yet",
+	"наверное",
+	"может",
+	"вообще",
+	"я бы сказал",
+	"так вот",
+
+
+
 ]
 export{introductoryWords}
 //вводные вступительные, заключительные и нейтральные фразы
@@ -1363,6 +1301,10 @@ const youPossessiveWords = [
 	"твоему","твоим",
 	"твою", "твои",
 	"тебя",
+	"ваш","ваше","ваша","ваши",
+	"вашего","вашей","ваших",
+	"вашему","вашим","вашу","ваших",
+	"вашею","вашими","вашем",
 
 ]
 export {youPossessiveWords}

@@ -3,7 +3,12 @@ const losCallingWords = [
 	"лось", "los", "moose", "elk",
 	"егор", "егорка", "егорик", "egor", 
 	"великанов",
-	"velie"
+	"velie",
+	"chi",
+	"чи",
+	"чивандер",
+	"чивандерджексон",
+	"мастерчивандерджексон",
 ]
 export{losCallingWords}
 

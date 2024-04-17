@@ -213,7 +213,7 @@ blinking() //активировано
 		deadLookingFace.style.display = "block";
 		deadLookingFace.style.width = ""
 	
-		statusSign.textContent = "Не в сети?";
+		statusSign.textContent = "Не в сети";
 	
 	
 	}
@@ -245,6 +245,10 @@ blinking() //активировано
 	function toUpperCaseAnswer(answer){
 		return answer.charAt(0).toUpperCase() + answer.slice(1);
 	}
+	//функция делает первую букву ответа строчной
+	function toLowerCaseAnswer(answer){
+		return answer.charAt(0).toLowerCase() + answer.slice(1);
+	}	
 
 // АЛГОРИТМ РАБОТЫ ЧАТ БОТА
 
@@ -582,12 +586,12 @@ basicMode() //активировано
 			}	
 			
 			//спросить имя Лося
-			else if(message.includes("имя") || message.includes("зовут") && youPossessiveMatch != 0){
+			else if(message.includes("имя") || message.includes("зовут") && youPossessiveMatch != 0 || youMatch != 0){
 				setTimeout(() => {
 						let answers = [
 							"Джейсон Стетхем",
 							"Егор",
-							"Что за вопрос?",
+							"Что за вопрос? Егор",
 						]
 						let answer = answers[randomArrayNumber(answers)];
 						chatbotSendMessage(toUpperCaseAnswer(answer))	
@@ -1168,8 +1172,8 @@ basicMode() //активировано
 
 					let answers =[
 						`${quotes[randomArrayNumber(quotes)]}`,
-						`${agreeWords[randomArrayNumber(agreeWords)]} ${quotes[randomArrayNumber(quotes)]}`,
-						`${introductoryWords[randomArrayNumber(introductoryWords)]} ${quotes[randomArrayNumber(quotes)]}`,
+						`${agreeWords[randomArrayNumber(agreeWords)]}. ${quotes[randomArrayNumber(quotes)]}`,
+						`${toUpperCaseAnswer(introductoryWords[randomArrayNumber(introductoryWords)])}, ${toLowerCaseAnswer(quotes[randomArrayNumber(quotes)])}`,
 					
 					]
 					
