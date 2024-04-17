@@ -52,6 +52,8 @@ h1{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
+	text-align: center;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	background-color: $losBeige;
@@ -67,47 +69,44 @@ h1{
 		justify-content: start;
 		align-items: center;
 		gap: 20px;
-	}
-
-	.pfpBox{
-		display: block;
-		animation: losShake 1.2s ease infinite;
-		margin: 10px;
-
-		.pfp{
-			max-width: 150px;
-			overflow: hidden;
 
 
+		.media-body{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: baseline;
+			text-align: start;
+		
+			.status{
+				color: $losRed;
+				font-weight: bold;
+			}
 		}
 	}
 
-	.name{
-		margin: 10px;
-	}
 
-	.status{
-		color: $losRed;
-		font-weight: bold;
-		margin-left: 10px;
-
-	}
 
 	.mods{
 
 		display: flex;
-		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin: 10px;
+		text-align: center;
+		margin-right: 20px;
 		gap: 5px;
 
 		.mods-choices{
 
 			display: flex;
-			gap: 25px;
+			flex-direction: column;
+			text-align: center;
+			align-items: center;
+			gap: 10px;
 			list-style: none;
 			transition: 0.5s;
+			margin-bottom: 0;
+
 			
 			li{
 				padding: 2px 7px;
@@ -127,6 +126,7 @@ h1{
 
 }
 
+//на случай ссылок в сообщении
 a{
 	color: #fff;
 	text-decoration: underline;
@@ -178,10 +178,4 @@ a{
 	float: right;
 	background-color: $losRed;
 	color: #fff;
-}
-
-@keyframes losShake {
-	50%{
-		transform: rotate(1.5deg);
-	}
 }

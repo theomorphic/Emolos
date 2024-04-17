@@ -1,3 +1,13 @@
+.pfpBox {
+  display: block;
+  animation: losShake 1.2s ease infinite;
+  margin: 10px;
+}
+.pfpBox .pfp {
+  max-width: 150px;
+  overflow: hidden;
+}
+
 #basicFace {
   display: block;
 }
@@ -10,6 +20,24 @@
   display: none;
 }
 
+#wonderingFace {
+  display: none;
+}
+
+#deadLookingFace {
+  display: none;
+}
+
+@keyframes losShake {
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+@keyframes losShakeDeadly {
+  50% {
+    transform: skew(2deg, 1deg);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -53,6 +81,8 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #f5f2ea;
@@ -68,36 +98,34 @@ h1 {
   align-items: center;
   gap: 20px;
 }
-.media .pfpBox {
-  display: block;
-  animation: losShake 1.2s ease infinite;
-  margin: 10px;
-}
-.media .pfpBox .pfp {
-  max-width: 150px;
-  overflow: hidden;
-}
-.media .name {
-  margin: 10px;
-}
-.media .status {
-  color: #7c2c2d;
-  font-weight: bold;
-  margin-left: 10px;
-}
-.media .mods {
+.media .bio .media-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: baseline;
+  text-align: start;
+}
+.media .bio .media-body .status {
+  color: #7c2c2d;
+  font-weight: bold;
+}
+.media .mods {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 10px;
+  text-align: center;
+  margin-right: 20px;
   gap: 5px;
 }
 .media .mods .mods-choices {
   display: flex;
-  gap: 25px;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
   list-style: none;
   transition: 0.5s;
+  margin-bottom: 0;
 }
 .media .mods .mods-choices li {
   padding: 2px 7px;
@@ -156,10 +184,4 @@ a {
   float: right;
   background-color: #7c2c2d;
   color: #fff;
-}
-
-@keyframes losShake {
-  50% {
-    transform: rotate(1.5deg);
-  }
 }/*# sourceMappingURL=style.css.map */

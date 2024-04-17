@@ -1,6 +1,19 @@
 
 //РАБОТА С ЛИЦОМ ЛОСЯ
 
+
+.pfpBox{
+	display: block;
+	animation: losShake 1.2s ease infinite;
+	margin: 10px;
+
+	.pfp{
+		max-width: 150px;
+		overflow: hidden;
+	}
+}
+
+
 #basicFace{
 	display: block;
 }
@@ -12,4 +25,28 @@
 
 #blinkingFace{
 	display: none;
+}
+
+#wonderingFace{
+	display: none;
+
+}
+
+#deadLookingFace{
+	display: none;
+}
+
+
+
+
+@keyframes losShake {
+	50%{
+		transform: rotate(1.5deg);
+	}
+}
+
+@keyframes losShakeDeadly {
+	50%{
+		transform: skew(2deg, 1deg);;
+	}
 }
