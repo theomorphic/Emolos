@@ -53,6 +53,7 @@ function blinking(){
 		}, 3150);
 	}, 6000)
 }
+blinking()
 
 
 //ФУНКЦИИ РЕЖИМОВ БОТА
@@ -64,7 +65,6 @@ function blinking(){
 		basicFace.style.display = "block";
 		originalFace.style.display = "none";
 		statusSign.textContent = "В сети";
-		blinking()
 
 		basicFace.style.width = ""
 		blinkingFace.style.width = ""
@@ -78,7 +78,6 @@ function blinking(){
 		basicFace.style.display = "block";
 		originalFace.style.display = "none";
 		statusSign.textContent = "В сети";
-		blinking()
 
 		basicFace.style.width = ""
 		blinkingFace.style.width = ""
