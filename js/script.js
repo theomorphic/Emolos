@@ -83,7 +83,9 @@
 	import { descriptionWords as descriptionWords } from "./response.js";
 	//прилагательные и наречия для выражения своего мнения
 	import { positiveDescriptionWords as positiveDescriptionWords } from "./response.js";
-
+	//позитивные слова
+	import { neutralWords as neutralWords } from "./response.js";
+	//нейтральные ответы
 
 	// РЕАКЦИЯ НА ОТДЕЛЬНЫЕ ИМЕНА И ОБРАЩЕНИЯ
 	import { unknownNames as unknownNames } from "./response.js";
@@ -1344,13 +1346,14 @@ basicMode() //активировано
 			}	
 		//КОРОТКИЕ ОТВЕТЫ: СОГЛАСИЕ И ОТРИЦАНИЕ, обращение на ты
 
-			//согласие и несогласие
+			//согласие
 			else if(agreeMatch.length != 0){
 				setTimeout(() => {
 
 					let answers =[
 						`${agreeWords[randomArrayNumber(agreeWords)]}`,
-						`${agreeWords[randomArrayNumber(agreeWords)]}, but you sound like ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
+						`${neutralWords[randomArrayNumber(neutralWords)]}`,
+						`${agreeWords[randomArrayNumber(agreeWords)]}, но прозвучало ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 
 					]
 
@@ -1365,9 +1368,7 @@ basicMode() //активировано
 					let answers =[
 						`${disagreeWords[randomArrayNumber(disagreeWords)]}`,
 						`${agreeWords[randomArrayNumber(agreeWords)]}`,
-						`${agreeWords[randomArrayNumber(agreeWords)]}. ${toUpperCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
-						`You strike me as ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
-
+						`${neutralWords[randomArrayNumber(neutralWords)]}`,
 					]
 
 					let answer = answers[randomArrayNumber(answers)];
@@ -1405,7 +1406,8 @@ basicMode() //активировано
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
 						`${binderPhrases[randomArrayNumber(binderPhrases)]} ${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
-
+						`Звучишь ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`Прозвучало ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 					]
 
 					let answer = answers[randomArrayNumber(answers)];
