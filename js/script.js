@@ -154,7 +154,8 @@
 	//языки и лингвистика
 	import { movieTitles as movieTitles } from "./categories.js";
 	import { movieWords as movieWords } from "./categories.js";
-
+	import { movieMessages as movieMessages } from "./categories.js";
+	//кино
 
 //ФУНКЦИИ ГРАФИЧЕСКОГО ИНТЕРФЕЙСА
 
@@ -1402,10 +1403,8 @@ basicMode() //активировано
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
-						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${musicQuestions[randomArrayNumber(musicQuestions)]}`,
+						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${movieMessages[randomArrayNumber(movieMessages)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
-						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
-						`${binderPhrases[randomArrayNumber(binderPhrases)]} ${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
 						`Звучишь ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 						`Прозвучало ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 					]
