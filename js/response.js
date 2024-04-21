@@ -9,11 +9,12 @@ const greetingsWords = [
 ]
 export{greetingsWords}
 const greetingsMessages = [
-	"Пф",
+	"Пф, привет",
 	"Ку",
-	"Ага",
+	"Ага, здорово",
 	"Здорова",
-	"Ну",
+	"Ну привет",
+	"Здравствуйте",
 ]
 export{greetingsMessages}
 //короткие приветствия и пожелания
@@ -21,7 +22,7 @@ const negativeMessages =[
 	"Ты мне погруби", 
 	"Язык промой с мылом",
 	"Ты берега не попутал?",
-	"Вонючие словечки",
+	"Вонючие словечки ты подбираешь",
 	"У тебя из пасти воняет",
 	"Фу таким быть",
 ]
@@ -31,9 +32,12 @@ const negativeWords =[
 	"блять",
 	"пиздец",
 	"сука",
+	"сучка",
 	"нахуй","нахуя","нихуя","охуеть","хуйня",
+	"хуй",
 	"ебать",
 	"пизда",
+	"говно","говна","говен","говну","говнам","говном","говнами","говне","говнах",
 
 	"hole",
 	"musa",
@@ -137,22 +141,53 @@ const negativeWords =[
 export{negativeWords}
 //реакции на бранные слова и оскорбления
 const rudeWords = [
-
 	"лох", "лохи","лоха","лоху","лохов","лохам","лохом","лохами","лохе","лохах",
 	"лошпед","лошпеды","лошпеда","лошпедов","лошпеду","лошпедам","лошпедом","лошпедами","лошпеде","лошпедах",
 	"лошара","лошары","лошар","лошаре","лошарам","лошару","лошарой","лошарою","лошарами","лошарах",
+	"лошок","лошки","лошка","лошков","лошку","лошкам","лошком","лошками","лошке","лошках",
+
 	"дурак","дураки","дураку","дурака","дуракам","дураков","дураком","дураками","дураке","дураках",
 	"дура","дуры","дур","дуре","дурам","дуру","дурой","дурою","дурами","дурах",
 	"дурачина","дурачины","дурачин","дурачине","дурачинам","дурачину","дурачиной","дурачиною","дурачинами","дурачине","дурачинах",
+	
 	"придурок","придурки","придурка","придурков","придурку","придуркам","придурком","придурками","придурке","придурках",
 	"болван","болваны","болвана","болванов","болвану","болванам","болванами","болване","болванах",
 	"нуб","нубы","нуба","нубов","нубу","нубам","нубами","нубе","нубах",
-	"олень","олени","оленя","оленей","оленю","оленям","оленями","олене","оленях",
-]
+	"сопляк","сопляки","сопляка","сопляков","сопляку","соплякам","сопляком","сопляками","сопляке","сопляках",
+	"олух","олухи","олуха","олухов","олуху","олухам","олухом","олухами","олухе","олухах",
+	"идиот","идиоты","идиота","идиотов","идиоту","идиотам","идиотом","идиотами","идиоте","идиотах",
 
+	"мудак","мудаки","мудака","мудаков","мудаку","мудакам","мудаков","мудаком","мудаками","мудаке","мудаках",
+	"мудень","мудни","мудня","мудней","мудню","мудням","муднем","муднями","мудне","муднях",
+
+	"гей","геи","гея","геев","гею","геям","геем","геями","гее","геях",
+	"педик","педики","педика","педиков","педику","педикам","педиком","педиками","педике","педиках",
+
+	"олень","олени","оленя","оленей","оленю","оленям","оленями","олене","оленях",
+	
+	"член","члены","члена","членов","члену","членам","членом","членами","члене","членах",
+	"пенис","пенисы","пениса","пенисов","пенису","пенисам","пенисом","пенисами","пенисе","пенисах",
+
+	"опущенный","опущен","опущеная",
+	"тупой","тупая","тупое",
+	"вафлер",
+	"очко",
+	"жопа","жопу",
+	"задница","задницу",
+	"зад",
+	"кал","кала",
+]
 export{rudeWords}
 //легкие грубости
-
+const rudeMessages = [
+	"При мне так не выражайся",
+	"Плохо ты говоришь",
+	"Ты полон злобы, раз пишешь такое",
+	"Позор так писать",
+	"Одумайся",
+	"Позоришься сейчас",
+]
+export{rudeMessages}
 
 
 
@@ -179,6 +214,8 @@ const smalltalk = [
 	"Что ты слушаешь в последнее время?",
 	"Ты слышал про недавние сионистские гонения?",
 	"Ты не ощущаешь общественный запрос на марксистский ревизионизм?",
+	"Я успел разочароваться в левацких настроениях Франции, что ты думаешь?",
+	"Ты не смотрел фильмы того румынского режиссёра?",
 ]
 export {smalltalk};
 //small talk
@@ -444,70 +481,87 @@ const descriptionWords = [
 export{descriptionWords}
 //наречия для выражения своего мнения
 const positiveDescriptionWords = [
-	"kind",
-	"smart",
-	"compassionate",
-	"brave",
-	"generous",
-	"talented",
-	"charismatic",
-	"optimistic",
-	"confident",
-	"creative",
-	"loving",
-	"inspiring",
-	"honest",
-	"determined",
-	"intelligent",
-	"funny",
-	"resilient",
-	"patient",
-	"motivated",
-	"successful",
-	"persuasive",
-	"loyal",
-	"inventive",
-	"caring",
-	"empathetic",
-	"humble",
-	"compassionate",
-	"hardworking",
-	"adventurous",
-	"innovative",
-	"friendly",
-	"energetic",
-	"wise",
-	"faithful",
-	"energetic",
-	"reliable",
-	"pioneering",
-	"responsible",
-	"positive",
-	"resourceful",
-	"confident",
-	"dedicated",
-	"thoughtful",
-	"grateful",
-	"calm",
-	"sincere",
-	"authentic",
-	"cheerful",
-	"outgoing",
-	"diligent",
-	"gracious",
-	"modest",
-	"polite",
-	"charming",
-	"insightful",
-	"articulate",
-	"perceptive",
-	"radiant",
-	"inspiring",
-	"motivating",
-	"nurturing",
-	"sympathetic",
-	"warm-hearted",
-	"bold",
+	"добродушно",
+	"честно",
+	"смело",
+	"щедро",
+	"открыто",
+	"искренне",
+	"терпеливо",
+	"справедливо",
+	"смотряще",
+	"положительно",
+	"дружелюбно",
+	"оптимистично",
+	"удивительно",
+	"созидательно",
+	"внимательно",
+	"толерантно",
+	"ласково",
+	"доверчиво",
+	"выразительно",
+	"весело",
+	"настойчиво",
+	"великодушно",
+	"жизнерадостно",
+	"сочувственно",
+	"энергично",
+	"спонтанно",
+	"находчиво",
+	"активно",
+	"решительно",
+	"уверенно",
+	"обаятельно",
+	"креативно",
+	"благоприятно",
+	"эмоционально",
+	"спокойно",
+	"умело",
+	"вдохновенно",
+	"вежливо",
+	"эффективно",
+	"грациозно",
+	"мудро",
+	"успешно",
+	"гармонично",
+	"компетентно",
+	"утонченно",
+	"эффектно",
+	"авторитетно",
+	"изобретательно",
+	"логично",
+	"утешительно",
+	"безопасно",
+	"заботливо",
+	"благотворно",
+	"ответственно",
+	"удобно",
+	"надежно",
+	"внутренне",
+	"прогрессивно",
+	"аккуратно",
+	"великолепно",
+	"качественно",
+	"отчетливо",
+	"уместно",
+	"стабильно",
+	"галантно",
+	"организованно",
+	"целеустремленно",
+	"ревностно",
+	"изящно",
+	"благородно",
+	"жизнеутверждающе",
+	"приветливо",
+	"сильно",
+	"крепко",
+	"достойно",
+	"колоритно",
+	"ясно",
+	"сонтрастно",
+	"красиво",
+	"философично",
+	
 ]
 export{positiveDescriptionWords}
 
@@ -890,77 +944,19 @@ const unknownNames = [
 
 ]
 export{unknownNames}
-const unknownNamesMessages = [
-	"Nice to meet you, my smurfy friend!",
-	"What a unusual name, smurf-tastic!",
-	"Greetings, smurf-nificent one!",
-	"Ah, a new name to add to my smurfy collection!",
-	"How smurfy to meet someone with such a unique name!",
-	"Welcome to the smurfiest of introductions!",
-	"A name as rare as a smurf in a haystack!",
-	"I've never heard a name quite like yours, smurf-tastic!",
-	"Such a smurfy name you have there!",
-	"Glad to make your acquaintance with a name like that!",
-	"Your name is as smurfy as a field of ripe smurfberry bushes!",
-	"A name as mysterious as the enchanted forest!",
-	"Smurf-tacular name you have there!",
-	"My smurf senses tell me we're going to be great friends!",
-	"I have a feeling your name will go down in smurfy history!",
-	"What a smurfy surprise to meet someone with such a unique name!",
-	"A name like yours is a rare gem in the smurfy world!",
-	"I can't wait to get to know the smurf behind that name!",
-	"Your name is like a melody that sings in the smurfiest of tunes!",
-	"Welcome to the smurfiest of worlds, my friend!",
-	"You bring a touch of magic with a name like that!",
-	"I feel the smurftastic vibes radiating from your name!",
-	"A smurf-tacular name for a smurf-tacular individual!",
-	"Such a smurfy name for a smurfy soul!",
-	"I'm delighted to meet someone with such a smurfy name!",
-	"Your name is like a ray of sunshine on a rainy day!",
-	"I have a feeling our paths were meant to cross with a name like yours!",
-	"What a smurftastic introduction you've given me with that name!",
-	"A name as vibrant as a meadow of wildflowers!",
-	"I'm smurfed to meet someone with such an intriguing name!",
-	"Your name is a breath of fresh air in the smurfy village!",
-	"So glad to meet someone with a name as smurfy as yours!",
-	"My smurfy instincts tell me we're going to have a great connection!",
-	"I've never met someone with a name quite like yours before!",
-	"Your name is like a spark that lights up the smurfiest of nights!",
-	"What a smurftastic surprise to hear a name like yours!",
-	"With a name like that, you're sure to make a smurfy impression!",
-	"You bring a touch of magic with a name like that!",
-	"A name as rare as a smurf in a haystack!",
-	"How smurfy to meet someone with such a unique name!",
-	"Greetings, smurf-nificent one!",
-	"My smurfy senses tell me we're going to be great friends!",
-	"What a unusual name, smurf-tastic!",
-	"Your name is like a melody that sings in the smurfiest of tunes!",
-	"A smurf-tacular name for a smurf-tacular individual!",
-	"Such a smurfy name for a smurfy soul!",
-	"I'm delighted to meet someone with such a smurfy name!",
-	"Your name is like a ray of sunshine on a rainy day!",
-	"I have a feeling our paths were meant to cross with a name like yours!",
-	"What a smurftastic introduction you've given me with that name!",
-	"A name as vibrant as a meadow of wildflowers!",
-]
-export{unknownNamesMessages}
-//список незнакомых имен, а также реакции на них
-   
+
 const youWords = [
 	"ты","тебя","тебе","тобой","тобою",
 	"вы","вас","вам","вами",
 
-
 ]
 export{youWords}
 //прямое обращение к боту
-
 const youPossessiveWords = [
 	"твой","твое","твоя",
 	"твоего","твоей","твоих",
 	"твоему","твоим",
 	"твою", "твои",
-	"тебя",
 	"ваш","ваше","ваша","ваши",
 	"вашего","вашей","ваших",
 	"вашему","вашим","вашу","ваших",
@@ -969,30 +965,19 @@ const youPossessiveWords = [
 ]
 export {youPossessiveWords}
 
-const meActionWords = [
-	"I",
-	"Papa Smurf",
-	"Papa",
-	"The Wisest Smurf"
-]
-export{meActionWords}
-//обращение бота от первого лица
+const meWords = [
+	"я","меня","мне","мной","мною",
 
-const meStateWords = [
-	"Im",
-	"I am",
-	"am"
 ]
-export{meStateWords}
-//личные местоимения с глаголом быть
+export{meWords}
+//обращение от первого лица
 
-const nominativeMeWords = [
-	"i",
-	"im",
-	"iam",
+const mePossessWords = [
+	"мой","мое","моя","моего","моей","моих","моему","моим","мою","мои",
+
 ]
-export {nominativeMeWords}
-
+export{mePossessWords }
+//личные местоимения притяжательного падежа
 
 
 const questions = [

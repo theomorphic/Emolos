@@ -52,10 +52,11 @@
 	//короткие реакции на полное непонимание темы
 	import { questions as generalQuestions } from "./response.js";
 	import { rudeWords as rudeWords } from "./response.js";
+	import { rudeMessages as rudeMessages } from "./response.js";
 	//общие грубости
 
 
-	// ДЛИННЫЕ ПРЕДЛОЖЕНИЯ И ФРАЗЫ
+// ДЛИННЫЕ ПРЕДЛОЖЕНИЯ И ФРАЗЫ
 	import {smalltalk as smalltalk} from "./response.js";
 	//small talk
 	import{quotes as quotes} from "./response.js";
@@ -67,7 +68,7 @@
 	import { jokesWords as jokesWords } from "./categories.js";
 	//шутки
 
-	// СЛОВА ДЛЯ КОНСТРУИРОВАНИЯ РАЗБОРНЫХ ПРЕДЛОЖЕНИЙ
+// СЛОВА ДЛЯ КОНСТРУИРОВАНИЯ РАЗБОРНЫХ ПРЕДЛОЖЕНИЙ
 	import {conjunction as conjunction} from "./response.js";
 	// союзны и союзные слова
 	import {agreeWords as agreeWords} from "./response.js";
@@ -85,10 +86,9 @@
 	import { neutralWords as neutralWords } from "./response.js";
 	//нейтральные ответы
 
-	// РЕАКЦИЯ НА ОТДЕЛЬНЫЕ ИМЕНА И ОБРАЩЕНИЯ
+// РЕАКЦИЯ НА ОТДЕЛЬНЫЕ ИМЕНА И ОБРАЩЕНИЯ
 	import { unknownNames as unknownNames } from "./response.js";
-	import { unknownNamesMessages as unknownNamesMessages } from "./response.js";
-	//список неизвестных имён и реакций на них
+	//незнакомые имена
 	import {alex as alex} from "./files/alex.js";
 	import {alexResponse as alexResponse} from "./files/alex.js";
 	//реакция на Алёшу
@@ -113,16 +113,12 @@
 	//обращение напрямую к боту
 	import { youPossessiveWords as youPossessiveWords } from "./response.js";
 	//притяжательный падеж к боту
-	import { nominativeMeWords as nominativeMeWords } from "./response.js";
-	//имнительный падеж для первого лица
+	import { meWords as meWords } from "./response.js";
+	//обращение от первого лица
+	import { mePossessWords as mePossessWords } from "./response.js";
+	//первое лицо в притяжательном падеже
 
-	import { meActionWords as meActionWords } from "./response.js";
-	//первое лицо для бота к глаголу
-	import { meStateWords as meStateWords } from "./response.js";
-	//первое лицо бота с глаголом быть
-
-
-	// КАТЕГОРИИ РАЗНЫХ ПОНЯТИЙ
+// КАТЕГОРИИ РАЗНЫХ ПОНЯТИЙ
 	import {foodNames as foodNames} from "./categories.js";
 	import { foodDescription as foodDescription } from "./categories.js";
 	import { foodQuestions as foodQuestions } from "./categories.js";
@@ -154,6 +150,10 @@
 	import { movieWords as movieWords } from "./categories.js";
 	import { movieMessages as movieMessages } from "./categories.js";
 	//кино
+
+//ОТДЕЛЬНЫЕ ГЛАГОЛЫ
+	import { verbLove as verbLove } from "./verbs.js";
+	//глагол любить, нравится и тд
 
 //ФУНКЦИИ ГРАФИЧЕСКОГО ИНТЕРФЕЙСА
 
@@ -468,6 +468,8 @@ basicMode() //активировано
 		//личный счёт
 		const youMatch = youWords.filter(element => message.includes(element));
 		const youPossessiveMatch = youPossessiveWords.filter(element => message.includes(element));
+		const meMatch = meWords.filter(element => message.includes(element));
+		const mePossessMatch = mePossessWords.filter(element => message.includes(element));
 
 		//оскорбления, старость,грубость	
 		const negativeMatch = negativeWords.filter(element => message.includes(element));
@@ -506,11 +508,18 @@ basicMode() //активировано
 		//короткие ответы: согласие и отрицание, обращение на ты
 		const agreeMatch = agreeWords.filter(element => message.includes(element));
 		const disagreeMatch = disagreeWords.filter(element => message.includes(element));
-		const nominativeIMatch = nominativeMeWords.filter(element => message.includes(element));
 
-		//ОСКОРБЛЕНИЯ, СТАРОСТЬ,ГРУБОСТЬ
+		//отдельные слова и категории
+		const positiveDescriptionMatch = positiveDescriptionWords.filter(element => message.includes(element));
 
-			//лично оскорбили
+		//отдельные глаголы
+		const verbLoveMatch = verbLove.filter(element => message.includes(element));
+	
+
+
+		//ОСКОРБЛЕНИЯ, ГРУБОСТЬ
+
+			//личное грубое оскорбление Лосю
 			if(youMatch.length != 0 && negativeMatch.length != 0){
 				setTimeout(() => {
 					let answers =[
@@ -518,8 +527,8 @@ basicMode() //активировано
 						`${negativeMessages[randomArrayNumber(negativeMessages)]}`,
 						`${disagreeWords[randomArrayNumber(disagreeWords)]}, не говори так. ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
 						`Да пошел ты`,
-						`Говорит твоё воспитание`,
-						
+						"Сам про себя так скажи, щенок",
+						`Говорит твоё воспитание`,	
 					]
 					
 					let answer = answers[randomArrayNumber(answers)];
@@ -527,21 +536,52 @@ basicMode() //активировано
 
 				}, 1000);
 			}
-			//негатив
+			//легкая колкость лично Лосю
+			else if(youMatch.length != 0 && rudeMatch.length != 0){
+				setTimeout(() => {
+					let answers =[
+						`Ты так не выражайся`,
+						`Не говори ${toLowerCaseAnswer(rudeMatch[0])} в мою сторону`,
+						`В мой адрес слово ${toLowerCaseAnswer(toUpperCaseAnswer(rudeMatch[0]))} не произноси`,
+						`${negativeMessages[randomArrayNumber(negativeMessages)]}`,
+						`${disagreeWords[randomArrayNumber(disagreeWords)]}, не говори так. ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
+						"Сам ты такой",
+						`Фу, сам такой`,	
+					]
+					
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+
+				}, 1000);
+			}
+			//личное грубое оскорбление самого себя
+			else if(meMatch.length != 0 && negativeMatch.length != 0 ||rudeMatch.length != 0 ){
+				setTimeout(() => {
+					let answers =[
+						`Грубовато, но про тебя можно так сказать`,
+						`${agreeWords[randomArrayNumber(agreeWords)]}`,
+						`${toUpperCaseAnswer(agreeWords[randomArrayNumber(agreeWords)])}, в твой адрес можно так сказать`,
+						`Не говори так про себя`,
+						`Ты себя лучше знаешь`,
+					]
+					
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+
+				}, 1000);
+			}
+
+			//обсценная лексика
 			else if(negativeMatch.length != 0){
 				setTimeout(() => {
 
 					let answers =[
 						`${negativeMessages[randomArrayNumber(negativeMessages)]}`,
-						`You are ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}, ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
-						`${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}, ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
-						`You sound like ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
-						`I'm gonna call you ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
-						`This is not okay, ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
-						`Very ${descriptionWords[randomArrayNumber(descriptionWords)]}, you ${foodNames[randomArrayNumber(foodNames)]}`,
-						`Ох как ${descriptionWords[randomArrayNumber(descriptionWords)]}, ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
-						`It's rude, you are ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
-						`You didn't offend me by using words like that, but remember ${quotes[randomArrayNumber(quotes)]}`,
+						`Прозвучало так ${descriptionWords[randomArrayNumber(descriptionWords)]}, ${toLowerCaseAnswer(negativeMessages[randomArrayNumber(negativeMessages)])}`,
+						`Пишешь весьма ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`Мне неприятны твои слова, это ${descriptionWords[randomArrayNumber(descriptionWords)]}. ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
+						`Очень так ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`Ох как ${descriptionWords[randomArrayNumber(descriptionWords)]}, ${toLowerCaseAnswer(negativeMessages[randomArrayNumber(negativeMessages)])}`,
 					]
 
 					let answer = answers[randomArrayNumber(answers)];
@@ -549,6 +589,22 @@ basicMode() //активировано
 
 				}, 1500);
 			}
+			//легкие колкости
+			else if(rudeMatch.length != 0){
+
+				setTimeout(() => {
+					let answers =[
+						`${rudeMessages[randomArrayNumber(rudeMessages)]}`,
+						`${rudeMessages[randomArrayNumber(rudeMessages)]}`,
+						`${rudeMessages[randomArrayNumber(rudeMessages)]}`,
+						`${toUpperCaseAnswer(rudeMatch[0])}? Одумайся`,
+						`Что? ${toUpperCaseAnswer(rudeMatch[0])}? Это некрасиво`,
+						`Что? ${toUpperCaseAnswer(rudeMatch[0])}? Фу так говорить`,
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);	
+			}			
 
 		//ПРИВЕТСТВИЕ И ПРОЩАНИЕ
 
@@ -567,24 +623,60 @@ basicMode() //активировано
 				setTimeout(() => {
 
 					let answers =[
-						`${toUpperCaseAnswer(unknownNameMatch[0])}! This name is ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
-						`Oh it's ${toUpperCaseAnswer(unknownNameMatch[0])}. ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
-						`${toUpperCaseAnswer(unknownNameMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
-						`${toUpperCaseAnswer(unknownNameMatch[0])}? You sound more like ${toUpperCaseAnswer(unknownNames[randomArrayNumber(unknownNames)])}. Don't take it to heart, Papa Smurf could be wrong`,
-
+						`${toUpperCaseAnswer(unknownNameMatch[0])}! Ну, звучит ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+						`Что за ${toUpperCaseAnswer(unknownNameMatch[0])}?`,
+						`Это еще кто?`,
+						`Чет не могу вспомнить таковых граждан`
 					]
 
 					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);
 			}
+			//назвали самого Лося плюс обращение на ты
+			else if(losCallingMatch.length != 0 && youMatch.length != 0){
+				setTimeout(() => {
+
+					let answers =[
+						`Это я`,
+						`Ну я`,
+						`Я, а что?`,
+					]
+
+
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+
+				}, 1500);
+			}
+		
+			//назвали самого Лося плюс обращение на ты притяжательное
+			else if(losCallingMatch.length != 0 && youPossessiveMatch.length != 0 ){
+				setTimeout(() => {
+
+					let answers =[
+						`${agreeWords[randomArrayNumber(agreeWords)]}, это про меня`,
+						`А ты не знаешь, что да что ли?`,
+						`Угу, ${toLowerCaseAnswer(youPossessiveMatch[0])}. И что?`,
+						`${disagreeWords[randomArrayNumber(disagreeWords)]}, ${toLowerCaseAnswer(youPossessiveMatch[0])}`
+					]
+
+
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+
+				}, 1500);
+			}
+
 			//назвали самого Лося
 			else if(losCallingMatch.length != 0){
 				setTimeout(() => {
 					let answer = losCallingMessages[randomArrayNumber(losCallingMessages)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1500);
-			}	
+			}
+/////////			
+			
 			
 			//спросить имя Лося
 			else if(message.includes("имя") || message.includes("зовут") && youPossessiveMatch != 0 || youMatch != 0){
@@ -1277,20 +1369,7 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);	
 			}
-			//легкие колкости
-			else if(rudeMatch.length != 0){
 
-				setTimeout(() => {
-					let answers =[
-						"Be nice, little Smurf",
-						"This is not a good word",
-						"It's not polite to say",
-						"Don't talk to elders like that"
-					]
-					let answer = answers[randomArrayNumber(answers)];
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-				}, 1400);	
-			}
 			//скучно
 			else if(message.includes("boring") || message.includes("bored") || message.includes("boredom")){
 
@@ -1374,21 +1453,27 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);
 			}
-			//обращение на ты от лица пользователя
-			else if(nominativeIMatch.length != 0){
+
+
+		//ОТДЕЛЬНЫЕ СЛОВА И КАТЕГОРИИ
+
+			//положительные слова для описания
+			else if(positiveDescriptionMatch.length != 0){
 				setTimeout(() => {
 
 					let answers =[
-						"You are",
-						"Yes you are",
-						"Aren't you?",
-						`${agreeWords[randomArrayNumber(agreeWords)]} you are`						
+						`Ну да, ${positiveDescriptionMatch[0]}`,
+						`${toUpperCaseAnswer(positiveDescriptionMatch[0])}, а что?`,
+						`Хорошо, не ${positiveDescriptionMatch[0]}, а ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+						`${agreeWords[randomArrayNumber(agreeWords)]}, ${positiveDescriptionMatch[0]}`,						
 					]
 
 					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);
-			}
+			}			
+
+
 
 		//АБСОЛЮТНОЕ НЕПОНИМАНИЕ
 
