@@ -2283,17 +2283,6 @@ const langNamesQuestions = [
 ]
 export{langNamesQuestions}
 
-const rudeWords = [
-	"shut",
-	"stupid",
-	"fool",
-	"dirty",
-	"git",
-	"crazy",
-	"screw","screws","screwing"
-]
-
-export{rudeWords}
 
 const jokes = [
 	"Why did the tomato turn red? Because it saw the salad dressing!",

@@ -51,7 +51,7 @@
 	import {noIdeaMessages as noIdeaMessages} from "./response.js";
 	//короткие реакции на полное непонимание темы
 	import { questions as generalQuestions } from "./response.js";
-	import { rudeWords as rudeWords } from "./categories.js";
+	import { rudeWords as rudeWords } from "./response.js";
 	//общие грубости
 
 
@@ -61,8 +61,6 @@
 	import{quotes as quotes} from "./response.js";
 	import { quotesAsking as quotesAsking } from "./response.js";
 	//длинные цитаты-наставления
-	import { negativePersonalMessages as negativePersonalMessages } from "./response.js";
-	//реакция на личные оскорбления
 	import { weatherMessages as weatherMessages } from "./response.js";
 	//мнения о погоде
 	import { jokes as jokes } from "./categories.js";
@@ -516,11 +514,11 @@ basicMode() //активировано
 			if(youMatch.length != 0 && negativeMatch.length != 0){
 				setTimeout(() => {
 					let answers =[
-						`${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
-						`Did you call me this bad word? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
-						`${disagreeWords[randomArrayNumber(disagreeWords)]}, you called me such a disgusting word. ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
-						`Don't say that to me!${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
-						`Dear Smurf, this word is too bad for you. That's how you talk to elders? ${negativePersonalMessages[randomArrayNumber(negativePersonalMessages)]}`,
+						`Ты так не выражайся`,
+						`${negativeMessages[randomArrayNumber(negativeMessages)]}`,
+						`${disagreeWords[randomArrayNumber(disagreeWords)]}, не говори так. ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
+						`Да пошел ты`,
+						`Говорит твоё воспитание`,
 						
 					]
 					
@@ -541,7 +539,7 @@ basicMode() //активировано
 						`I'm gonna call you ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
 						`This is not okay, ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
 						`Very ${descriptionWords[randomArrayNumber(descriptionWords)]}, you ${foodNames[randomArrayNumber(foodNames)]}`,
-						`Oh so ${descriptionWords[randomArrayNumber(descriptionWords)]}, ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
+						`Ох как ${descriptionWords[randomArrayNumber(descriptionWords)]}, ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
 						`It's rude, you are ${descriptionWords[randomArrayNumber(descriptionWords)]} ${foodNames[randomArrayNumber(foodNames)]}`,
 						`You didn't offend me by using words like that, but remember ${quotes[randomArrayNumber(quotes)]}`,
 					]
