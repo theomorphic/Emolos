@@ -511,6 +511,7 @@ basicMode() //активировано
 
 		//отдельные слова и категории
 		const positiveDescriptionMatch = positiveDescriptionWords.filter(element => message.includes(element));
+		const conjunctionMatch = conjunction.filter(element => message.includes(element));
 
 		//отдельные глаголы
 		const verbLoveMatch = verbLove.filter(element => message.includes(element));
@@ -1472,7 +1473,14 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1400);
 			}			
+			//союзы
+			else if(conjunctionMatch.length != 0 ){
 
+				setTimeout(() => {
+					let answer = `${conjunctionMatch[0]}?`;
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1400);
+			}
 
 
 		//АБСОЛЮТНОЕ НЕПОНИМАНИЕ
