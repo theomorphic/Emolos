@@ -184,4 +184,48 @@ a {
   float: right;
   background-color: #1e7062;
   color: #fff;
+}
+
+@media (max-width: 1400px) {
+  .input-group .btn {
+    display: none;
+  }
+}
+@media (max-width: 990px) {
+  .input-group .textbox {
+    width: 85%;
+  }
+}
+@media (max-width: 768px) {
+  .input-group .textbox {
+    width: 80%;
+  }
+}
+@media (max-width: 432px) {
+  .media {
+    margin-top: 0;
+  }
+  .media .bio .media-body .name {
+    display: none;
+  }
+  .media .bio .media-body .status {
+    display: none;
+  }
+  .media .mods {
+    margin-right: 40px;
+  }
+  .input-group {
+    margin-bottom: 25px;
+  }
+  .input-group .textbox {
+    width: 75%;
+  }
+}
+@media (max-width: 354px) {
+  .mods {
+    margin-right: 60px;
+  }
+  .input-group .textbox {
+    width: 70%;
+  }
 }/*# sourceMappingURL=style.css.map */

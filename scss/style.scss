@@ -180,3 +180,106 @@ a{
 	background-color: $losGreen;
 	color: #fff;
 }
+
+// @media(max-height:1024px){
+	
+// 	.container{
+// 		display: flex;
+// 		flex-direction: column;
+// 		justify-content: center;
+// 		height: 100vh;
+// 		padding: 15px;
+
+// 		.media{
+// 			height: 50%;
+
+// 			.pfpBox{
+// 				margin-left: 0;
+// 				margin-right: 0;
+// 				padding-left: 0;
+// 				padding-right: 0;
+// 				.pfp{
+// 					max-width: 140px;
+// 				}
+// 			}
+// 		}	
+
+// 	}
+// 	#chatContainer{
+// 		display: flex;
+// 		flex-direction: column;
+// 		justify-content: start;	
+// 		padding: 5px;
+// 	}
+	
+
+// }
+
+
+
+@media(max-width:1400px){
+	.input-group{
+		.btn{
+			display: none;
+			
+		}
+	}		
+
+}
+
+@media(max-width:990px){
+	.input-group{
+		.textbox{
+			width: 85%;
+		}
+	}		
+
+}
+
+
+@media(max-width:768px){
+
+	.input-group{
+		.textbox{
+			width: 80%;
+		}
+	}
+}
+
+@media(max-width:432px){
+	.media{
+		margin-top: 0;
+		.bio{
+			.media-body{
+				.name{
+					display: none;
+				}
+				.status{
+					display: none;
+				}
+			}
+		}
+
+		.mods{
+			margin-right: 40px;
+		}
+	}
+	.input-group{
+		margin-bottom: 25px;
+		.textbox{
+			width: 75%;
+		}
+	}
+}
+
+@media(max-width:354px){
+
+	.mods{
+		margin-right: 60px;
+	}
+	.input-group{
+		.textbox{
+			width: 70%;
+		}
+	}
+}
