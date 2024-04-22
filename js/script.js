@@ -102,9 +102,11 @@
 	import { thomas as thomas } from "./files/thomas.js";
 	import { thomasMessages as thomasMessages } from "./files/thomas.js";
 	//реакция на Томми Лавандеру
-	import { moose as moose } from "./files/moose.js";
-	import { mooseMessages as mooseMessages } from "./files/moose.js";
-	//реакция на Лося
+
+	import { sysa as sysa } from "./files/sysa.js";
+	import { sysaMessages as sysaMessages } from "./files/sysa.js";
+	//реакции на Сысу
+
 	import { losCallingWords as losCallingWords } from "./files/los.js";
 	import { losCallingMessages as losCallingMessages } from "./files/los.js";
 	//назвали самого Лося
@@ -154,6 +156,8 @@
 //ОТДЕЛЬНЫЕ ГЛАГОЛЫ
 	import { verbLove as verbLove } from "./verbs.js";
 	//глагол любить, нравится и тд
+	import { verbName as verbName } from "./verbs.js";
+	//глагол называть, звать + имя
 
 //ФУНКЦИИ ГРАФИЧЕСКОГО ИНТЕРФЕЙСА
 
@@ -483,8 +487,8 @@ basicMode() //активировано
 		const mishaMatch = misha.filter(element => message.includes(element));
 		const alexMatch = alex.filter(element => message.includes(element));
 		const tommyMatch = thomas.filter(element => message.includes(element));
-		const mooseMatch = moose.filter(element => message.includes(element));
 		const losCallingMatch = losCallingWords.filter(element => message.includes(element));
+		const sysaMatch = sysa.filter(element => message.includes(element));
 
 		//категории познаний
 		const waterMatch = waterWords.filter(element => message.includes(element));
@@ -515,7 +519,7 @@ basicMode() //активировано
 
 		//отдельные глаголы
 		const verbLoveMatch = verbLove.filter(element => message.includes(element));
-	
+		const verbNameMatch = verbName.filter(element => message.includes(element));
 
 
 		//ОСКОРБЛЕНИЯ, ГРУБОСТЬ
@@ -644,7 +648,6 @@ basicMode() //активировано
 						`Я, а что?`,
 					]
 
-
 					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 
@@ -675,75 +678,55 @@ basicMode() //активировано
 					let answer = losCallingMessages[randomArrayNumber(losCallingMessages)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1500);
-			}
-/////////			
-			
-			
+			}					
 			//спросить имя Лося
-			else if(message.includes("имя") || message.includes("зовут") && youPossessiveMatch != 0 || youMatch != 0){
+			else if(verbNameMatch.length != 0 && (youPossessiveMatch != 0 || youMatch != 0)){
 				setTimeout(() => {
-						let answers = [
-							"Джейсон Стетхем",
-							"Егор",
-							"Что за вопрос? Егор",
-						]
-						let answer = answers[randomArrayNumber(answers)];
-						chatbotSendMessage(toUpperCaseAnswer(answer))	
+					let answers = [
+						"Джейсон Стетхем",
+						"Егор",
+						"Что за вопрос? Егор",
+						"Лось",
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))	
 
 				}, 1400);	
 			}	
-
 			//заговорили про Мишу
 			else if(mishaMatch.length != 0){
 				setTimeout(() => {
 
 					let answers =[
-						`${toUpperCaseAnswer(mishaMatch[0])}? ${mishaMessages[randomArrayNumber(mishaMessages)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
-						`${mishaMessages[randomArrayNumber(mishaMessages)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
-						`Ohh, that Smurf. "${movieTitles[randomArrayNumber(movieTitles)]}" is his favorite movie, as I remember`,
-						`Well, ${toUpperCaseAnswer(mishaMatch[0])} likes ${mishaActivities[randomArrayNumber(mishaActivities)]}`,
-						`${toUpperCaseAnswer(mishaMatch[0])} loves ${mishaActivities[randomArrayNumber(mishaActivities)]}`,
+						`${toUpperCaseAnswer(mishaMatch[0])}? ${mishaMessages[randomArrayNumber(mishaMessages)]}, ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]} говорю`,
+						`${mishaMessages[randomArrayNumber(mishaMessages)]}, если говорить ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+						`Помню такого. ${movieTitles[randomArrayNumber(movieTitles)]} его любимый фильм, он говорил, вроде`,
+						`Хм, ${toUpperCaseAnswer(mishaMatch[0])}. Ему нравится ${mishaActivities[randomArrayNumber(mishaActivities)]}`,
+						`Он любит ${mishaActivities[randomArrayNumber(mishaActivities)]}`,
 					]
 
 					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1200);
 			}
-
 			//заговорили про Алёшу
 			else if(alexMatch.length != 0){
 				setTimeout(() => {
 
 					let answers =[
-						`${alexResponse[randomArrayNumber(alexResponse)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
-						`${agreeWords[randomArrayNumber(agreeWords)]} ${alexResponse[randomArrayNumber(alexResponse)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
-						`${alexMatch[0]}? He loves ${alexLang[randomArrayNumber(alexLang)]}`,
-						`Ohh ${toUpperCaseAnswer(alexMatch[0])}? That guy speaks ${alexLang[randomArrayNumber(alexLang)]}`,
-						`You said ${toUpperCaseAnswer(alexMatch[0])}? He is ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
-						`Yeah, ${toUpperCaseAnswer(alexMatch[0])}, what about him? I think he's ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
-						`Oh I know him. His favorite movie, if I remember correctly is "${movieTitles[randomArrayNumber(movieTitles)]}"`,
-						`That Smurf. "${movieTitles[randomArrayNumber(movieTitles)]}" is his favorite movie, right?`,
-						`${toUpperCaseAnswer(alexMatch[0])}! ${unknownNamesMessages[randomArrayNumber(unknownNamesMessages)]}`,
-						`${toUpperCaseAnswer(alexMatch[0])}? ${musicQuestions[randomArrayNumber(musicQuestions)]}`,
-						`He likes westerns a lot. Also he's Latvian`,
-						
+						`${alexResponse[randomArrayNumber(alexResponse)]}`,
+						`${agreeWords[randomArrayNumber(agreeWords)]}, ${toLowerCaseAnswer(alexResponse[randomArrayNumber(alexResponse)])}, довльно ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}, я помню`,
+						`${alexMatch[0]}? Он любит ${alexLang[randomArrayNumber(alexLang)]}`,
+						`${toUpperCaseAnswer(alexMatch[0])}? Можно часто услышать ${alexLang[randomArrayNumber(alexLang)]} из его рта`,
+						`Говоришь ${toUpperCaseAnswer(alexMatch[0])}? Он действует ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]} по жизни`,
+						`${toUpperCaseAnswer(alexMatch[0])}, к чему про него?`,
+						`Его любимый фильм полюбому ${movieTitles[randomArrayNumber(movieTitles)]}`,	
 					]
-
 					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1200);
 
 			}
-
-			//заговорили про Лося
-			else if(mooseMatch.length != 0){
-				setTimeout(() => {
-
-					let answer = mooseMessages[randomArrayNumber(mooseMessages)];
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-				}, 1200);
-			}
-
 			//заговорили про Томми
 			else if(tommyMatch.length != 0){
 				setTimeout(() => {
@@ -751,8 +734,15 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1500);
 			}
+			//заговорили про Сысу
+			else if(sysaMatch.length != 0){
+				setTimeout(() => {
+					let answer = sysaMessages[randomArrayNumber(sysaMessages)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1500);
+			}			
 
-
+////////////////
 		//КАТЕГОРИИ ПОЗНАНИЙ
 
 			//вода и морская тематика

@@ -6,24 +6,19 @@ const thomas = [
 	"lavandera",
 	"artem",
 	"repin",
-	"прачка",
-	"артем",
-	"артём",
+	"прачка","прачку","прачке",
+	"артем","артемы","артема","артемов","артему","артемам","артемом","артемами","артеме","артемах",
 	"томми",
 	"томас",
-	"тема",
-	"тёма",
+	"артом",
+	"репин",
 ]
 export{thomas}
 
 const thomasMessages = [
-	"Tommy non conosce confini, li supera",
-	"I was privileged to hear about this Great Man",
-	"You will be washed",
-	"Verrai lavato.",
-	"Tommy Lavandera will wash ya!",
-	"Stop talking about such important people",
-	"Není nikdo důležitější než Lavandera",
-	"When God created man, he was guided by Artem",
+	"Большой Дон. Даже не знаю, как он там",
+	"Ты будешь вымыт за это упоминание",
+	"Лавандера, он в загнивающей Европе сейчас",
+	"Первый перед первыми, Артом",
 ]
 export{thomasMessages}

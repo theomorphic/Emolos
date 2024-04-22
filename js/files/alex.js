@@ -2,40 +2,31 @@
 const alex = [
 	"alex",
 	"lexa",
-	"леха",
-	"леша",
+	"леха","лехи","лех","лехе","лехам","леху","лехой","лехою","лехами","лехе","лехах",
+	"леша","леши","леш","леше","лешам","лешу","лешей","лешею","лешами","лешах",
 	"алешка",
-	"алёшка",
+	"алеша","алеши","алеш","алеше","алешам","алешу","алешей","алешею","алешами","алешах",
 	"origin",
 	"lilkitchen",
 	"parfe",
-	"алексей",
+	"алексей","алексеи","алексея","алексеев","алексею","алексеям","алексеем","алексеями","алексее","алексеях",
 	"alyosha",
 	"lex",
 	"alexei",
 ]
 export{alex}
 const alexResponse = [
-	"this name is",
-	"oh Alex is",
-	"I don't think that this so-called Alex is",
-	"that name is",
-	"you know, I find this name",
-	"wait, Alex? He's",
-	"I prefer to call him Alyosha because it's more",
-	"not sure about him, he is",
-	"ohh, don't mention him, he's like Gargamel and it's",
-	"him? I think he's friends with Gargamel, he's",
-	"this name, arrr, it's"
+	"Ты про того латыша?",
+	"Лил Китчен, помню такого",
+	"У него дома висит портрет Медведева",
+	"Он видит на все 100%",
+	"Это он показал мне видео с коровой и гноем",
+	"Яха МС, читает про мох",
 ]
 export{alexResponse}
 const alexLang = [
-	"Lithuanian",
-	"Latvian",
-	"German",
-	"Chinese",
-	"French",
-	"Greek",
-	"Hebrew"
+	"литовский",
+	"латышский",
+	"французский",
 ]
 export{alexLang}

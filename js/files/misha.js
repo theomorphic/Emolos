@@ -5,6 +5,7 @@ const misha = [
 	"миха","михи","мих","михе","михам","миху","михой","михою","михами","михах",
 	"мишаня","мишани","мишань","мишаням","мишаню","мишаней","мишанями","мишанях",
 	"михаил","михаилы","михаилу","михаилам","михаилу","михаилом","михаилами","михаилах",
+	"мишка","мишки","мишек","мишкам","мишку","мишкой","мишкою","мишками","мишках",
 	"бибер","биберы","биберу","биберам","бибером","биберами","биберах",
 	"misha",
 	"mike",
@@ -12,29 +13,24 @@ const misha = [
 	"theomorphic",
 	"soters",
 	"maxwell",
-	"миша",
 	"felixmk",
 	"felix",
 ]
 export{misha}
 const mishaMessages =[
-	"He is the best! Also he is",
-	"This man is God. He could be",
-	"I love him so much, he is",
-	"This Smurf is better than anybody including myself. But he's"
+	"Он Бибер",
+	"Он слишком часто шутит про моего отца",
+	"Бибер преподает английский, хотя сам его не знает",
+	"Он с каждым годом все толще и толще",
+	"У него две акции Газпрома и куча псевдоуверенности в себе"
 ]
 export{mishaMessages}
 //реакции на Мишу
 
 const mishaActivities = [
-	"drinking tomato juice while eating white chocolate",
-	"making overconfident statements",
-	"creating stupid dwarfs",
-	"drawing Donald Duck",
-	"creating scandals",
-	"playing Minecraft",
-	"reading useless fiction books",
-	"playing violent video games",
-	"listening to noise so-called music",
+	"слушать музыку для нубов",
+	"убеждать меня в словах, которые я не произносил",
+	"читать книги каких-то фриков",
+	"играть в Майн. Так и не перерос детские игры",
 ]
 export{mishaActivities}
