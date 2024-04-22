@@ -121,13 +121,16 @@
 	//первое лицо в притяжательном падеже
 
 // КАТЕГОРИИ РАЗНЫХ ПОНЯТИЙ
-	import {foodNames as foodNames} from "./categories.js";
-	import { foodDescription as foodDescription } from "./categories.js";
-	import { foodQuestions as foodQuestions } from "./categories.js";
+	import { foodWords as foodWords } from "./categories/food.js";
+	import {foodNames as foodNames} from "./categories/food.js";
+	import { foodDescription as foodDescription } from "./categories/food.js";
+	import { foodQuestions as foodQuestions } from "./categories/food.js";
 	//описание еды, реакции и вопросы
-	import {waterWords as waterWords} from "./categories.js";
-	import { waterQuestions as waterQuestions } from "./categories.js";
-	//список слов про воду, океаны и т.д.
+	import { drinksWords } from "./categories/drinks.js";
+	import { drinksNames } from "./categories/drinks.js";
+	import { drinksDescription } from "./categories/drinks.js";
+	import { drinksBadNames } from "./categories/drinks.js";
+	//описание напитков
 	import {animalWords as animalWords} from "./categories.js";
 	import {animalDescription as animalDescription} from "./categories.js";
 	import { animalQuestions as animalQuestions } from "./categories.js";
@@ -158,6 +161,10 @@
 	//глагол любить, нравится и тд
 	import { verbName as verbName } from "./verbs.js";
 	//глагол называть, звать + имя
+	import { verbDrink } from "./verbs.js";
+	//глагол пить, выпивать
+	import { verbSmoke as verbSmoke } from "./verbs.js";
+	//глагол курить, дымыть
 
 //ФУНКЦИИ ГРАФИЧЕСКОГО ИНТЕРФЕЙСА
 
@@ -226,7 +233,6 @@ blinking() //активировано
 	function clickSendBtn(){
 		if(input.value == ""){
 			alert("Ты текст не написал")
-			rulesBtn.style.display = "";
 		}else{
 			let messageText =  input.value.trim();
 			user.message = messageText;
@@ -303,7 +309,7 @@ blinking() //активировано
 
 	//заводской режим Лося
 	function basicMode(){
-		console.log("basic");
+		// console.log("basic");
 
 		//работа с биографией
 		pfpBox.style.animation = "";
@@ -324,7 +330,7 @@ blinking() //активировано
 	}
 	//мёртвый режим Лося
 	function originalMode(){
-		console.log("original");
+		// console.log("original");
 
 		//работа с биографией
 		pfpBox.style.animation = "none";
@@ -464,9 +470,11 @@ basicMode() //активировано
 
 		let marks = /[,.!?';:\s]+/; 
 		// параметр, который фильтрует знаки через regexp
-		let message = new String(user.message).toLowerCase().split(marks); 
+		let yo = /ё/g;
+		//параметр для фильтра буквы ё, g - небоходимый флаг для global, берет все элементы, а не только первый
+		let message = new String(user.message).toLowerCase().replaceAll(yo, "е").split(marks);
 		//создает массив из сообщения
-		
+
 		//ТОЧКИ СОПРИКОСНОВЕНИЯ, СОВПАДЕНИЯ С ИЗВЕСТНЫМИ ДАННЫМИ
 
 		//личный счёт
@@ -491,8 +499,10 @@ basicMode() //активировано
 		const sysaMatch = sysa.filter(element => message.includes(element));
 
 		//категории познаний
-		const waterMatch = waterWords.filter(element => message.includes(element));
+		const foodWordsMatch = foodWords.filter(element => message.includes(element));
 		const foodMatch = foodNames.filter(element => message.includes(element));
+		const drinksWordsMatch = drinksWords.filter(element => message.includes(element));
+
 		const animalMatch = animalWords.filter(element => message.includes(element));
 		const loveMatch = loveWords.filter(element => message.includes(element));
 		const natureMatch = natureWords.filter(element => message.includes(element));
@@ -520,6 +530,7 @@ basicMode() //активировано
 		//отдельные глаголы
 		const verbLoveMatch = verbLove.filter(element => message.includes(element));
 		const verbNameMatch = verbName.filter(element => message.includes(element));
+		const verbDrinkMatch = verbDrink.filter(element => message.includes(element));
 
 
 		//ОСКОРБЛЕНИЯ, ГРУБОСТЬ
@@ -671,14 +682,7 @@ basicMode() //активировано
 
 				}, 1500);
 			}
-
-			//назвали самого Лося
-			else if(losCallingMatch.length != 0){
-				setTimeout(() => {
-					let answer = losCallingMessages[randomArrayNumber(losCallingMessages)];
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-				}, 1500);
-			}					
+					
 			//спросить имя Лося
 			else if(verbNameMatch.length != 0 && (youPossessiveMatch != 0 || youMatch != 0)){
 				setTimeout(() => {
@@ -742,31 +746,37 @@ basicMode() //активировано
 				}, 1500);
 			}			
 
-////////////////
 		//КАТЕГОРИИ ПОЗНАНИЙ
 
-			//вода и морская тематика
-			else if(waterMatch.length != 0){
-				setTimeout(() => {
-
-					let answer = processTopics(waterMatch[0], natureDescription[randomArrayNumber(natureDescription)], waterQuestions[randomArrayNumber(waterQuestions)]);
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-				}, 1300);
-			}
-			
 			//еда
-				//любимые блюда Папы
+				//любимые блюда Лося
 			else if(youMatch.length != 0 && foodMatch.length != 0){
 				setTimeout(() => {
 
-					
-					let answer = `I like ${foodMatch[0]}. But my favorite delicacy are Sarsaparilla and Smurfberries`;
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-
-					
+					let answers =[
+						`${foodMatch[0]}? Это неплохо, но я люблю вафельные трубочки`,
+						`${foodMatch[0]}? Ну, сойдет`,
+						`У меня нет особо любимых блюд, разве что трубочки`
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))			
 
 				}, 1300);
 			}
+			//любишь еду?
+			else if(foodWordsMatch.length != 0 && verbLoveMatch.length != 0){
+				setTimeout(() => {
+
+					let answers =[
+						`${foodWordsMatch[0]}. Люблю трубочки`,
+						`${foodWordsMatch[0]}? Мало что нравится в последнее время`,
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))			
+
+				}, 1300);
+			}			
+///////////			
 			//разгоны про еду
 			else if(foodMatch.length != 0){
 				setTimeout(() => {
@@ -775,6 +785,35 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}
+///////////			
+			//что любишь пить?
+			else if((drinksWordsMatch.length != 0 || verbDrinkMatch.length != 0 )&& verbLoveMatch.length != 0){
+				setTimeout(() => {
+
+					let answers =[
+						`Пить? Странный вопрос. Ну, иногда могу выпить чаю`,
+						`Я пью чай, кофе там. Не особо принципиально.`,
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))			
+
+				}, 1300);
+			}
+			//что ты пьешь?
+			else if((drinksWordsMatch.length != 0 || verbDrinkMatch.length != 0 )&& youMatch.length != 0){
+				setTimeout(() => {
+
+					let answers =[
+						`Воду. Что еще я пью?`,
+						`Ромашковый чай я пью, от нервов`,
+						`Я пью зеленый чай, кофе пореже, не очень полезно`,
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))			
+
+				}, 1300);
+			}
+
 
 			//животные
 			else if(animalMatch.length != 0){
@@ -1035,9 +1074,9 @@ basicMode() //активировано
 					let hour = now.getHours();
 					let minute = now.getMinutes();
 					let answers =[
-						`It's ${hour}:${minute}`,
+						`Сейчас ${hour}:${minute}`,
 						`${hour}:${minute}`,
-						`Now it's ${hour}:${minute}`,
+						`Время ${hour}:${minute}`,
 					]
 					let answer = answers[randomArrayNumber(answers)];
 					chatbotSendMessage(toUpperCaseAnswer(answer))
@@ -1472,6 +1511,15 @@ basicMode() //активировано
 				}, 1400);
 			}
 
+
+		//ПРЕДПОСЛЕДНЯЯ КАТЕГОРИЯ
+			//назвали самого Лося
+			else if(losCallingMatch.length != 0){
+				setTimeout(() => {
+					let answer = losCallingMessages[randomArrayNumber(losCallingMessages)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1500);
+			}
 
 		//АБСОЛЮТНОЕ НЕПОНИМАНИЕ
 
