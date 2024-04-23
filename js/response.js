@@ -976,7 +976,7 @@ export{mePossessWords }
 
 
 const questions = [
-	"what",
+	"what", "что","че", "чего",
 	"where",
 	"when",
 	"why",

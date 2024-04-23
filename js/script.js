@@ -130,6 +130,7 @@
 	import { drinksNames } from "./categories/drinks.js";
 	import { drinksDescription } from "./categories/drinks.js";
 	import { drinksBadNames } from "./categories/drinks.js";
+	import { drinksQuestions as drinksQuestions } from "./categories/drinks.js";
 	//описание напитков
 	import {animalWords as animalWords} from "./categories.js";
 	import {animalDescription as animalDescription} from "./categories.js";
@@ -151,9 +152,9 @@
 	import { langNamesMessages as langNamesMessages } from "./categories.js";
 	import { langNamesQuestions as langNamesQuestions } from "./categories.js";
 	//языки и лингвистика
-	import { movieTitles as movieTitles } from "./categories.js";
-	import { movieWords as movieWords } from "./categories.js";
-	import { movieMessages as movieMessages } from "./categories.js";
+	import { movieTitles as movieTitles } from "./categories/movies.js";
+	import { movieWords as movieWords } from "./categories/movies.js";
+	import { movieMessages as movieMessages } from "./categories/movies.js";
 	//кино
 
 //ОТДЕЛЬНЫЕ ГЛАГОЛЫ
@@ -165,6 +166,8 @@
 	//глагол пить, выпивать
 	import { verbSmoke as verbSmoke } from "./verbs.js";
 	//глагол курить, дымыть
+	import { verbHate as verbHate } from "./verbs.js";
+	//глагол ненавидеть, злиться
 
 //ФУНКЦИИ ГРАФИЧЕСКОГО ИНТЕРФЕЙСА
 
@@ -357,50 +360,50 @@ basicMode() //активировано
 	function processTopics(topic, description, question){
 
 		let answers = [
-				`About ${topic}, I find it pretty ${description}`,
-				`${topic}? Yeah, it's ${description} for my taste. ${question}`,
-				`Are you talking about ${topic}? That is so ${description}. ${question}`,
-				`Funny, you mentioned ${topic}, I see it as something ${description}`,
-				`${description}. You think it applies to ${topic}?`,
-				`You know what? ${toUpperCaseAnswer(topic)} is just ${description}. I needed to say it`,
-				`In my perspective, ${topic} is ${description}. ${question}`,
-				`To me, ${topic} is simply ${description}. Do you agree?`,
-				`It's my belief that ${topic} is ${description}`,
-				`${topic} is simply ${description} in my eyes`,
-				`Personally, I find ${topic} ${description}`,
-				`One adjective I would use for ${topic} is ${description}`,
-				`From my standpoint, ${topic} is ${description}. ${question}`,
-				`I perceive ${topic} as ${description}. What about you?`,
-				`Expressing my opinion about ${topic}, I would describe it as ${description}`,
-				`I find ${topic} to be ${description}. ${question}`,
-				`To me, ${topic} appears ${description}. ${question}`,
-				`It seems to me that ${topic} is ${description}. It should be ${description}`,
-				`When it comes to ${topic}, I see it as ${description}. ${question}`,
-				`My take on ${topic} is ${description}. ${question}`,
-				`My stance on ${topic} is ${description}, agree?`,
-				`I reckon ${topic} is ${description}. ${question}`,
-				`It strikes me that ${topic} is ${description}, right? ${question}`,
-				`I regard ${topic} as ${description}. ${question}`,
-				`I opine that ${topic} is ${description}. What do you think here?`,
-				`In my estimation, ${topic} is ${description}. ${question}`,
-				`As far as I'm concerned, ${topic} is ${description}. ${question}`,
-				`My position on ${topic} is that it is ${description}. ${question}`,
-				`In my judgment, ${topic} is ${description}. ${question}`,
-				`My perspective leads me to see ${topic} as ${description}`,
-				`My sense of ${topic} is ${description}. ${question}`,
-				`I understand ${topic} as ${description}. ${question}`,
-				`I am convinced that ${topic} is ${description}. ${question}`,
-				`It is my belief that ${topic} is ${description}. ${question}`,
-				`I interpret ${topic} as something ${description}. ${question}`,
-				`To my mind, ${topic} falls under the category of ${description}`,
-				`I categorize ${topic} as ${description}. And I'm not joking here`,
-				`In a nutshell, ${topic} is ${description}. ${question}`,
-				`It is my considered view that ${topic} is ${description}. ${question}`,
-				`It is my belief that ${topic} can be defined as ${description}. ${question}`,
-				`I put ${topic} in the category of ${description}. ${question}`,
-				`My considered opinion is that ${topic} is ${description}. But I'm not sure. ${question}`,
-
-
+				`Говоря про ${topic}, звучит ${description} для меня`,
+				`${topic}? Ну так, вполне ${description} на мой вкус. ${question}`,
+				`${topic}! Весьма ${description}, я бы сказал. ${question}`,
+				`О, ты сказал ${topic}. Мне это всегда казалось ${description}`,
+				`Слишком ${description}, честно говоря`,
+				`${description} на мой взгляд`,
+				`Довольно ${description} для меня`,
+				// `You know what? ${toUpperCaseAnswer(topic)} is just ${description}. I needed to say it`,
+				// `In my perspective, ${topic} is ${description}. ${question}`,
+				// `To me, ${topic} is simply ${description}. Do you agree?`,
+				// `It's my belief that ${topic} is ${description}`,
+				// `${topic} is simply ${description} in my eyes`,
+				// `Personally, I find ${topic} ${description}`,
+				// `One adjective I would use for ${topic} is ${description}`,
+				// `From my standpoint, ${topic} is ${description}. ${question}`,
+				// `I perceive ${topic} as ${description}. What about you?`,
+				// `Expressing my opinion about ${topic}, I would describe it as ${description}`,
+				// `I find ${topic} to be ${description}. ${question}`,
+				// `To me, ${topic} appears ${description}. ${question}`,
+				// `It seems to me that ${topic} is ${description}. It should be ${description}`,
+				// `When it comes to ${topic}, I see it as ${description}. ${question}`,
+				// `My take on ${topic} is ${description}. ${question}`,
+				// `My stance on ${topic} is ${description}, agree?`,
+				// `I reckon ${topic} is ${description}. ${question}`,
+				// `It strikes me that ${topic} is ${description}, right? ${question}`,
+				// `I regard ${topic} as ${description}. ${question}`,
+				// `I opine that ${topic} is ${description}. What do you think here?`,
+				// `In my estimation, ${topic} is ${description}. ${question}`,
+				// `As far as I'm concerned, ${topic} is ${description}. ${question}`,
+				// `My position on ${topic} is that it is ${description}. ${question}`,
+				// `In my judgment, ${topic} is ${description}. ${question}`,
+				// `My perspective leads me to see ${topic} as ${description}`,
+				// `My sense of ${topic} is ${description}. ${question}`,
+				// `I understand ${topic} as ${description}. ${question}`,
+				// `I am convinced that ${topic} is ${description}. ${question}`,
+				// `It is my belief that ${topic} is ${description}. ${question}`,
+				// `I interpret ${topic} as something ${description}. ${question}`,
+				// `To my mind, ${topic} falls under the category of ${description}`,
+				// `I categorize ${topic} as ${description}. And I'm not joking here`,
+				// `In a nutshell, ${topic} is ${description}. ${question}`,
+				// `It is my considered view that ${topic} is ${description}. ${question}`,
+				// `It is my belief that ${topic} can be defined as ${description}. ${question}`,
+				// `I put ${topic} in the category of ${description}. ${question}`,
+				// `My considered opinion is that ${topic} is ${description}. But I'm not sure. ${question}`,
 			]
 
 		let answer = answers[randomArrayNumber(answers)];
@@ -502,6 +505,7 @@ basicMode() //активировано
 		const foodWordsMatch = foodWords.filter(element => message.includes(element));
 		const foodMatch = foodNames.filter(element => message.includes(element));
 		const drinksWordsMatch = drinksWords.filter(element => message.includes(element));
+		const drinksNamesMatch = drinksNames.filter(element => message.includes(element));
 
 		const animalMatch = animalWords.filter(element => message.includes(element));
 		const loveMatch = loveWords.filter(element => message.includes(element));
@@ -663,8 +667,7 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 
 				}, 1500);
-			}
-		
+			}		
 			//назвали самого Лося плюс обращение на ты притяжательное
 			else if(losCallingMatch.length != 0 && youPossessiveMatch.length != 0 ){
 				setTimeout(() => {
@@ -681,8 +684,7 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 
 				}, 1500);
-			}
-					
+			}			
 			//спросить имя Лося
 			else if(verbNameMatch.length != 0 && (youPossessiveMatch != 0 || youMatch != 0)){
 				setTimeout(() => {
@@ -776,7 +778,7 @@ basicMode() //активировано
 
 				}, 1300);
 			}			
-///////////			
+//словарь еды на перевод			
 			//разгоны про еду
 			else if(foodMatch.length != 0){
 				setTimeout(() => {
@@ -785,7 +787,15 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}
-///////////			
+//словарь напитков на добавление		
+			//разгоны про напитки
+			else if(drinksNamesMatch.length != 0){
+				setTimeout(() => {
+
+					let answer = processTopics(drinksNamesMatch[0], drinksDescription[randomArrayNumber(drinksDescription)], drinksQuestions[randomArrayNumber(drinksQuestions)]);
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1300);
+			}	
 			//что любишь пить?
 			else if((drinksWordsMatch.length != 0 || verbDrinkMatch.length != 0 )&& verbLoveMatch.length != 0){
 				setTimeout(() => {
@@ -813,6 +823,7 @@ basicMode() //активировано
 
 				}, 1300);
 			}
+//////////////			
 
 
 			//животные
@@ -878,7 +889,7 @@ basicMode() //активировано
 		//ИСКУССТВО: КИНО, МУЗЫКА
 		
 			//музыка
-			//общий вопрос про музыку лично Папе
+			//общий вопрос про музыку лично Лосю
 			else if(message.includes("music") && (youPossessiveMatch.length != 0 || youMatch.length != 0)){
 				setTimeout(() => {
 
@@ -913,7 +924,7 @@ basicMode() //активировано
 							
 				}, 1300);
 			}
-				//разгоны про жанры
+			//разгоны про жанры
 			else if(musicMatch.length != 0){
 				setTimeout(() => {
 
@@ -936,7 +947,7 @@ basicMode() //активировано
 			}
 			
 			//кино
-			//любимые фильмы папы
+			//любимые фильмы Лося
 			else if(youMatch.length != 0 && movieWordsMatch.length != 0){
 				setTimeout(() => {
 
@@ -947,15 +958,6 @@ basicMode() //активировано
 					]
 							
 					let answer = answers[randomArrayNumber(answers)];
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-							
-				}, 1300);
-			}
-			//главное кино папы
-			else if(youPossessiveMatch.length != 0 && movieWordsMatch.length != 0){
-				setTimeout(() => {
-
-					let answer = "I like The Smurfs. What else did you expect, little Smurf?";	
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 							
 				}, 1300);
@@ -974,7 +976,7 @@ basicMode() //активировано
 							
 				}, 1300);
 			}
-			// просто упомянули кино
+			//просто упомянули кино
 			else if(movieWordsMatch.length != 0){
 				setTimeout(() => {
 
@@ -1032,7 +1034,7 @@ basicMode() //активировано
 				
 			}
 		//ШУТКИ	
-			//папу назвали шуткой
+			//Лося назвали шуткой
 			else if(jokesMatch.length != 0 && youMatch.length !=0 && message.includes("are")){
 				setTimeout(() => {
 
@@ -1096,15 +1098,15 @@ basicMode() //активировано
 				}, 1400);	
 			}						
 		
-			// //ПРОСТО WHAT
-			else if(questionsMatch[0] == "what"){
+			// //ПРОСТО ЧТО
+			else if(questionsMatch[0] == "что"){
 
 					setTimeout(() => {
 						let answers = [
-							"What?",
-							"So what?",
-							"Whatever",
-							"Yeah, what is it actually?"
+							"Что?",
+							"И что?",
+							"Да ничего",
+							"Ничего"
 						]
 								
 						let answer = answers[randomArrayNumber(answers)];
