@@ -136,10 +136,6 @@
 	import {animalDescription as animalDescription} from "./categories.js";
 	import { animalQuestions as animalQuestions } from "./categories.js";
 	//описание животных
-	import { loveWords as loveWords } from "./categories.js";
-	import { loveDescription as loveDescription } from "./categories.js";
-	import { loveQuestions as loveQuestions } from "./categories.js";
-	//описание любви и чувств
 	import { natureWords as natureWords } from "./categories.js";
 	import { natureDescription as natureDescription } from "./categories.js";
 	import { natureQuestions as natureQuestions } from "./categories.js";
@@ -363,12 +359,11 @@ basicMode() //активировано
 				`Говоря про ${topic}, звучит ${description} для меня`,
 				`${topic}? Ну так, вполне ${description} на мой вкус. ${question}`,
 				`${topic}! Весьма ${description}, я бы сказал. ${question}`,
-				`О, ты сказал ${topic}. Мне это всегда казалось ${description}`,
+				`О, ты сказал ${topic}. Одно слово приходит на ум: ${description}`,
 				`Слишком ${description}, честно говоря`,
 				`${description} на мой взгляд`,
 				`Довольно ${description} для меня`,
-				// `You know what? ${toUpperCaseAnswer(topic)} is just ${description}. I needed to say it`,
-				// `In my perspective, ${topic} is ${description}. ${question}`,
+				`Что, ${topic}? Это ${description}. ${question}`,
 				// `To me, ${topic} is simply ${description}. Do you agree?`,
 				// `It's my belief that ${topic} is ${description}`,
 				// `${topic} is simply ${description} in my eyes`,
@@ -508,7 +503,6 @@ basicMode() //активировано
 		const drinksNamesMatch = drinksNames.filter(element => message.includes(element));
 
 		const animalMatch = animalWords.filter(element => message.includes(element));
-		const loveMatch = loveWords.filter(element => message.includes(element));
 		const natureMatch = natureWords.filter(element => message.includes(element));
 		const langMatch = langNames.filter(element => message.includes(element));
 		const jokesMatch = jokesWords.filter(element => message.includes(element));
@@ -778,7 +772,7 @@ basicMode() //активировано
 
 				}, 1300);
 			}			
-//словарь еды на перевод			
+	//словарь еды на перевод			
 			//разгоны про еду
 			else if(foodMatch.length != 0){
 				setTimeout(() => {
@@ -787,7 +781,7 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}
-//словарь напитков на добавление		
+	//словарь напитков на добавление		
 			//разгоны про напитки
 			else if(drinksNamesMatch.length != 0){
 				setTimeout(() => {
@@ -822,10 +816,9 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))			
 
 				}, 1300);
-			}
-//////////////			
+			}			
 
-
+	//словарь названий животных
 			//животные
 			else if(animalMatch.length != 0){
 				setTimeout(() => {
@@ -834,14 +827,8 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}
-			//любовь и чувства
-			else if(loveMatch.length != 0){
-				setTimeout(() => {
-
-					let answer = processTopics(loveMatch[0], loveDescription[randomArrayNumber(loveDescription)], loveQuestions[randomArrayNumber(loveQuestions)]);
-					chatbotSendMessage(toUpperCaseAnswer(answer))
-				}, 1300);
-			}						
+//////////////
+						
 			//природа
 			else if(natureMatch.length != 0){
 				setTimeout(() => {
