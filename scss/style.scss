@@ -149,7 +149,6 @@ a{
 		box-shadow: 0 0 5px 0 #00000044;
 		background-color: $losBeige;
 
-
 	}
 
 	#sendBtn{
@@ -161,6 +160,10 @@ a{
 		margin-left: 10px;
 		border-radius: 3px;
 	
+	}
+
+	.closed{
+		pointer-events: none;
 	}
 	
 }

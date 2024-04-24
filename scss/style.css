@@ -12,7 +12,7 @@
   display: block;
 }
 
-#originalFace {
+#deadFace {
   display: none;
 }
 
@@ -180,6 +180,9 @@ a {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2666666667);
   margin-left: 10px;
   border-radius: 3px;
+}
+.input-group .closed {
+  pointer-events: none;
 }
 
 .botMessage {

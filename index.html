@@ -22,9 +22,8 @@
 		<div class="media" id="media">
 			<div class="bio">
 				<div class="pfpBox" id="pfpBox">
-
-					<img class="pfp" id="basicFace" src="./img/emotions/basic.png" draggable="false">
-					<img class="pfp" id="originalFace" src="./img/emotions/dead.png" draggable="false">	
+					<img class="pfp" id="deadFace" src="./img/emotions/dead.png" draggable="false">	
+					<!-- <img class="pfp" id="basicFace" src="./img/emotions/basic.png" draggable="false"> -->
 					<img class="pfp" id="blinkingFace" src="./img/emotions/blinking.png" draggable="false">	
 					<img class="pfp" id="deadLookingFace" src="./img/emotions/dead-look.png" draggable="false">	
 					<img class="pfp" id="wonderingFace" src="./img/emotions/wondering.png" draggable="false">
@@ -32,6 +31,9 @@
 					<img class="pfp" id="angryFace" src="./img/emotions/angry.png" draggable="false">	
 					<img class="pfp" id="wowFace" src="./img/emotions/wow.png" draggable="false">	
 					<img class="pfp" id="misunderstandingFace" src="./img/emotions/misunderstanding.png" draggable="false">	
+				
+					<img class="pfp" id="basicFace" src="./img/emotions/basic.png" draggable="false">
+					
 				</div>
 				
 				
@@ -45,7 +47,7 @@
 			<div class="mods">
 				<ul class="mods-choices">
 					<li class="active btn-change" id="btnBasic">Заводской</li>
-					<li class="btn-change" id="btnOriginal">Оригинал</li>
+					<li class="btn-change" id="btnDead">Оригинал</li>
 					
 				</ul>
 
@@ -60,7 +62,7 @@
 		
 		<!-- Поле для набора сообщения и кнопка отправки -->
 		<div class="input-group" id="inputGroup">
-			<input id="input" class=" input" type="text" enterkeyhint="Smurf">
+			<input id="input" class=" input" type="text">
 			<button id="sendBtn" class="btn" type="button">Отправить</button>
 		
 		</div>
