@@ -34,7 +34,7 @@
 
 	//лица Лося
 	basicFace.addEventListener("mouseover", wonderingFaceDisplay)
-	wonderingFace.addEventListener("mouseout", showFace)
+	wonderingFace.addEventListener("mouseout", basicFaceDisplay)
 	deadFace.addEventListener("mouseout", stareDeadly)
 
 // КОРОТКИЕ ПРЕДЛОЖЕНИЯ И ФРАЗЫ
@@ -175,67 +175,6 @@
 		})
 	})
 	
-
-	
-	//ВСПОМОГАТЕЛЬНЫЕ ГРАФИЧЕСКИЕ ФУНКЦИИ
-
-	//показ стандартного лица
-	function basicFaceDisplay(){
-
-		basicFace.style.display = "block";
-		basicFace.style.width = "";
-
-		deadFace.style.display = "none";
-		deadFace.style.width = "0";
-		
-		blinkingFace.style.width = "";
-		
-		wonderingFace.style.width = "0";
-		
-		deadLookingFace.style.display = "none";
-
-		angryFace.style.display = "none";
-		angryFace.style.width = "0";
-	}
-
-	//показ мёртвого лица
-	function deadFaceDisplay(){
-		basicFace.style.width = "0";
-		basicFace.style.display = "none";
-
-		deadFace.style.display = "block";
-		deadFace.style.width = "";
-
-		blinkingFace.style.width = "0";
-		blinkingFace.style.display = "none";
-
-		wonderingFace.style.width = "0";
-		wonderingFace.style.display = "none";
-
-		angryFace.style.display = "none";
-		angryFace.style.width = "0";
-	}
-
-	//показ злого лица
-	function angryFaceDisplay(){
-		basicFace.style.display = "none";
-		basicFace.style.width = "0";
-
-		deadFace.style.display = "none";
-		deadFace.style.width = "0";
-		
-		blinkingFace.style.width = "";
-		
-		wonderingFace.style.width = "0";
-		wonderingFace.style.display = "none";
-
-		deadLookingFace.style.display = "none";
-
-
-		angryFace.style.display = "block";
-		angryFace.style.width = "";
-	}
-
 	//показ моргающего лица
 	function blinkingFaceDisplay(){
 		basicFace.style.width = "0";
@@ -253,9 +192,6 @@
 		angryFace.style.display = "none";
 		angryFace.style.width = "0";
 	}
-
-
-	//ОСНОВНЫЕ ГРАФИЧЕСКИЕ ФУНКЦИИ
 
 	//функция моргания Лося
 	function blinking(){
@@ -326,19 +262,6 @@ blinking() //активировано
 		angryFace.style.width = "0";
 	}
 
-	//функция нормализации лица Лося
-	function showFace(){
-		pfpBox.style.animation = "";
-	
-		basicFace.style.width = "";
-		basicFace.style.display = "block";
-	
-		blinkingFace.style.width = "";
-	
-		wonderingFace.style.width = "0";
-		wonderingFace.style.display = "none";
-	}
-
 	//функция мёртвого взгляда Лося
 	function stareDeadly(){
 		pfpBox.style.animation = "losShakeDeadly 1.2s ease infinite";
@@ -353,7 +276,75 @@ blinking() //активировано
 	
 	}
 
+	//показ стандартного лица
+	function basicFaceDisplay(){
+		pfpBox.style.animation = "";
 
+		basicFace.style.display = "block";
+		basicFace.style.width = "";
+
+		deadFace.style.display = "none";
+		deadFace.style.width = "0";
+		
+		blinkingFace.style.width = "";
+		
+		wonderingFace.style.width = "0";
+		wonderingFace.style.display = "none";
+		
+		deadLookingFace.style.display = "none";
+
+		angryFace.style.display = "none";
+		angryFace.style.width = "0";
+	}
+
+	//показ мёртвого лица
+	function deadFaceDisplay(){
+		basicFace.style.width = "0";
+		basicFace.style.display = "none";
+
+		deadFace.style.display = "block";
+		deadFace.style.width = "";
+
+		blinkingFace.style.width = "0";
+		blinkingFace.style.display = "none";
+
+		wonderingFace.style.width = "0";
+		wonderingFace.style.display = "none";
+
+		angryFace.style.display = "none";
+		angryFace.style.width = "0";
+	}
+
+	//показ злого лица
+	function angryFaceDisplay(){
+
+		
+		if(wonderingFace.style.display == "block"){
+			wonderingFaceDisplay()
+		}
+		else{
+			basicFace.style.display = "none";
+			basicFace.style.width = "0";
+	
+			deadFace.style.display = "none";
+			deadFace.style.width = "0";
+			
+			blinkingFace.style.width = "";
+
+			wonderingFace.style.width = "0";
+			wonderingFace.style.display = "none";
+	
+			deadLookingFace.style.display = "none";
+	
+	
+			angryFace.style.display = "block";
+			angryFace.style.width = "";
+		}
+
+
+	}
+
+	
 
 //ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
 
@@ -590,13 +581,13 @@ basicMode() //активировано
 
 	//ФИЛЬТР ДЛЯ СООБЩЕНИЯ ПОЛЬЗОВАТЕЛЯ
 
-	let marks = /[,.!?';:\s]+/; 
+	let marks = /[,.!?'\s]+/; 
 	// параметр, который фильтрует знаки через regexp
 	let yo = /ё/g;
 	//параметр для фильтра буквы ё, g - небоходимый флаг для global, берет все элементы, а не только первый
 	let message = new String(user.message).toLowerCase().replaceAll(yo, "е").split(marks);
 	//создает массив из сообщения
-
+	console.log(message)
 	//ТОЧКИ СОПРИКОСНОВЕНИЯ, СОВПАДЕНИЯ С ИЗВЕСТНЫМИ ДАННЫМИ
 
 	//личный счёт
@@ -650,6 +641,7 @@ basicMode() //активировано
 	//отдельные слова и категории
 	const positiveDescriptionMatch = positiveDescriptionWords.filter(element => message.includes(element));
 	const conjunctionMatch = conjunction.filter(element => message.includes(element));
+	const randomSmilesMatch = randomSmiles.filter(element => message.includes(element));
 
 	//отдельные глаголы
 	const verbLoveMatch = verbLove.filter(element => message.includes(element));
@@ -1654,6 +1646,15 @@ basicMode() //активировано
 				chatbotSendMessage(toUpperCaseAnswer(answer))
 			}, 1400);
 	}
+	//смайлики
+	else if(randomSmilesMatch.length != 0 ){
+
+		setTimeout(() => {
+			let answer = `${randomSmiles[randomArrayNumber(randomSmiles)]}`;
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1400);
+}
+	
 
 
 	//ПРЕДПОСЛЕДНЯЯ КАТЕГОРИЯ
@@ -1663,7 +1664,7 @@ basicMode() //активировано
 				let answer = losCallingMessages[randomArrayNumber(losCallingMessages)];
 				chatbotSendMessage(toUpperCaseAnswer(answer))
 			}, 1500);
-	}
+	}	
 
 	//АБСОЛЮТНОЕ НЕПОНИМАНИЕ
 
