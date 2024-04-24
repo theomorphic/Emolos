@@ -64,8 +64,8 @@
 	//длинные цитаты-наставления
 	import { weatherMessages as weatherMessages } from "./response.js";
 	//мнения о погоде
-	import { jokes as jokes } from "./categories.js";
-	import { jokesWords as jokesWords } from "./categories.js";
+	import { jokes as jokes } from "./response.js";
+	import { jokesWords as jokesWords } from "./response.js";
 	//шутки
 
 // СЛОВА ДЛЯ КОНСТРУИРОВАНИЯ РАЗБОРНЫХ ПРЕДЛОЖЕНИЙ
@@ -126,6 +126,8 @@
 	import { foodDescription as foodDescription } from "./categories/food.js";
 	import { foodQuestions as foodQuestions } from "./categories/food.js";
 	//описание еды, реакции и вопросы
+	import { spiceNames as spiceNames } from "./categories/food.js";
+	//названия специй
 	import { drinksWords } from "./categories/drinks.js";
 	import { drinksNames } from "./categories/drinks.js";
 	import { drinksDescription } from "./categories/drinks.js";
@@ -139,6 +141,7 @@
 	import { natureWords as natureWords } from "./categories.js";
 	import { natureDescription as natureDescription } from "./categories.js";
 	import { natureQuestions as natureQuestions } from "./categories.js";
+	import { natureNames as natureNames } from "./categories.js";
 	//описание природы
 	import { musicGenres as musicGenres } from "./categories.js";
 	import { musicDescription as musicDescription } from "./categories.js";
@@ -501,9 +504,11 @@ basicMode() //активировано
 		const foodMatch = foodNames.filter(element => message.includes(element));
 		const drinksWordsMatch = drinksWords.filter(element => message.includes(element));
 		const drinksNamesMatch = drinksNames.filter(element => message.includes(element));
+		const spiceNamesMatch = spiceNames.filter(element => message.includes(element));
 
 		const animalMatch = animalWords.filter(element => message.includes(element));
 		const natureMatch = natureWords.filter(element => message.includes(element));
+		const natureNamesMatch = natureNames.filter(element => message.includes(element));
 		const langMatch = langNames.filter(element => message.includes(element));
 		const jokesMatch = jokesWords.filter(element => message.includes(element));
 
@@ -771,7 +776,18 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))			
 
 				}, 1300);
-			}			
+			}
+			//разгоны про специи
+			else if(spiceNamesMatch.length != 0){
+				setTimeout(() => {
+					let answers =[
+						`${spiceNamesMatch[0]}? Лучше поберечь желудок и здоровье в целом`,
+						"Я стараюсь избегать специй, приправ и пряностей в последнее время"
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))
+				}, 1300);
+			}						
 	//словарь еды на перевод			
 			//разгоны про еду
 			else if(foodMatch.length != 0){
@@ -827,8 +843,22 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}
-//////////////
-						
+
+			//говорить слово природа
+			else if(natureNamesMatch.length != 0){
+				setTimeout(() => {
+
+					let answers =[
+						`${natureNamesMatch[0]}? Хочешь поговорить про природу? Про что конкретно`,
+						`Я люблю природу. ${natureQuestions[randomArrayNumber(natureQuestions)]}`,
+						`Ну вот. ${natureQuestions[randomArrayNumber(natureQuestions)]}`,
+					]
+					let answer = answers[randomArrayNumber(answers)];
+					chatbotSendMessage(toUpperCaseAnswer(answer))			
+
+				}, 1300);
+			}
+//////////////						
 			//природа
 			else if(natureMatch.length != 0){
 				setTimeout(() => {
