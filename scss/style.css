@@ -28,6 +28,18 @@
   display: none;
 }
 
+#angryFace {
+  display: none;
+}
+
+#wowFace {
+  display: none;
+}
+
+#misunderstandingFace {
+  display: none;
+}
+
 @keyframes losShake {
   50% {
     transform: rotate(1.5deg);

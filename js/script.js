@@ -20,6 +20,10 @@
 	const blinkingFace = document.getElementById("blinkingFace");
 	const wonderingFace = document.getElementById("wonderingFace");
 	const deadLookingFace = document.getElementById("deadLookingFace");
+	const angryFace = document.getElementById("angryFace");
+	const wowFace = document.getElementById("wowFace");
+	const misunderstandingFace = document.getElementById("misunderstandingFace");
+
 
 
 //ПОДКЛЮЧЕНИЕ ЭЛЕМЕНТОВ К ФУНКЦИЯМ
@@ -54,7 +58,8 @@
 	import { rudeWords as rudeWords } from "./response.js";
 	import { rudeMessages as rudeMessages } from "./response.js";
 	//общие грубости
-
+	import { randomSmiles as randomSmiles } from "./response.js";
+	//смайлики из знаков
 
 // ДЛИННЫЕ ПРЕДЛОЖЕНИЯ И ФРАЗЫ
 	import {smalltalk as smalltalk} from "./response.js";
@@ -540,6 +545,7 @@ basicMode() //активировано
 
 			//личное грубое оскорбление Лосю
 			if(youMatch.length != 0 && negativeMatch.length != 0){
+
 				setTimeout(() => {
 					let answers =[
 						`Ты так не выражайся`,
@@ -1481,7 +1487,7 @@ basicMode() //активировано
 						`${agreeWords[randomArrayNumber(agreeWords)]}`,
 						`${neutralWords[randomArrayNumber(neutralWords)]}`,
 						`${agreeWords[randomArrayNumber(agreeWords)]}, но прозвучало ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
-
+						`${randomSmiles[randomArrayNumber(randomSmiles)]}`,
 					]
 
 					let answer = answers[randomArrayNumber(answers)];
@@ -1496,6 +1502,7 @@ basicMode() //активировано
 						`${disagreeWords[randomArrayNumber(disagreeWords)]}`,
 						`${agreeWords[randomArrayNumber(agreeWords)]}`,
 						`${neutralWords[randomArrayNumber(neutralWords)]}`,
+						`${randomSmiles[randomArrayNumber(randomSmiles)]}`,
 					]
 
 					let answer = answers[randomArrayNumber(answers)];
@@ -1551,10 +1558,11 @@ basicMode() //активировано
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
-						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${movieMessages[randomArrayNumber(movieMessages)]}`,
-						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. ${smalltalk[randomArrayNumber(smalltalk)]}`,
+						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. Слушай, а  ${toLowerCaseAnswer(movieMessages[randomArrayNumber(movieMessages)])}`,
+						`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}. Кстати, ${toLowerCaseAnswer(smalltalk[randomArrayNumber(smalltalk)])}`,
 						`Звучишь ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
 						`Прозвучало ${descriptionWords[randomArrayNumber(descriptionWords)]}`,
+						`${randomSmiles[randomArrayNumber(randomSmiles)]}`,
 					]
 
 					let answer = answers[randomArrayNumber(answers)];
