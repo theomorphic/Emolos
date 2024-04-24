@@ -857,8 +857,8 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))			
 
 				}, 1300);
-			}
-//////////////						
+			}	
+	//словарь названий природы				
 			//природа
 			else if(natureMatch.length != 0){
 				setTimeout(() => {
@@ -867,7 +867,7 @@ basicMode() //активировано
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}, 1300);
 			}	
-			
+//**//**//**//**//				
 			//языки и лингвистика лично у Папы Смурфа
 			else if(youMatch.length != 0 && langMatch.length != 0){
 				setTimeout(() => {
