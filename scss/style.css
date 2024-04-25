@@ -24,6 +24,10 @@
   display: none;
 }
 
+#lookingFace {
+  display: none;
+}
+
 #deadLookingFace {
   display: none;
 }
@@ -37,6 +41,10 @@
 }
 
 #misunderstandingFace {
+  display: none;
+}
+
+#shockingFace {
   display: none;
 }
 

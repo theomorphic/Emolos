@@ -21,7 +21,6 @@
 #deadFace{
 	display: none;
 
-
 }
 
 #blinkingFace{
@@ -30,7 +29,10 @@
 
 #wonderingFace{
 	display: none;
+}
 
+#lookingFace{
+	display: none;
 }
 
 #deadLookingFace{
@@ -49,6 +51,9 @@
 	display: none;
 }
 
+#shockingFace{
+	display: none;
+}
 
 @keyframes losShake {
 	50%{
