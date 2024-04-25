@@ -48,6 +48,14 @@
   display: none;
 }
 
+#laughingFace {
+  display: none;
+}
+
+#tiredFace {
+  display: none;
+}
+
 @keyframes losShake {
   50% {
     transform: rotate(1.5deg);

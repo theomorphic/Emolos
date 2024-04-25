@@ -25,6 +25,8 @@
 	const wowFace = document.getElementById("wowFace");
 	const misunderstandingFace = document.getElementById("misunderstandingFace");
 	const shockingFace = document.getElementById("shockingFace");
+	const laughingFace = document.getElementById("laughingFace");
+	const tiredFace = document.getElementById("tiredFace");
 
 
 //ПОДКЛЮЧЕНИЕ ЭЛЕМЕНТОВ К ФУНКЦИЯМ
@@ -61,6 +63,7 @@
 	import{quotes as quotes} from "./response.js";
 	import { quotesAsking as quotesAsking } from "./response.js";
 	//длинные цитаты-наставления
+	import { weatherWords as weatherWords } from "./response.js";
 	import { weatherMessages as weatherMessages } from "./response.js";
 	//мнения о погоде
 	import { jokes as jokes } from "./response.js";
@@ -149,6 +152,7 @@
 	import { langNames as langNames } from "./categories.js";
 	import { langNamesMessages as langNamesMessages } from "./categories.js";
 	import { langNamesQuestions as langNamesQuestions } from "./categories.js";
+	import { langRussian as langRussian } from "./categories.js";
 	//языки и лингвистика
 	import { movieTitles as movieTitles } from "./categories/movies.js";
 	import { movieWords as movieWords } from "./categories/movies.js";
@@ -202,6 +206,9 @@
 
 		lookingFace.style.display = "none";
 		lookingFace.style.width = "0";
+
+		wowFace.style.display = "none";
+		wowFace.style.width = "0";
 	}
 
 	//функция моргания Лося
@@ -226,6 +233,12 @@
 					shockingFace.style.width = "0";
 					lookingFace.style.display = "none";
 					lookingFace.style.width = "0";
+					wowFace.style.display = "none";
+					wowFace.style.width = "0";
+					tiredFace.style.display = "none";
+					tiredFace.style.width = "0";
+					laughingFace.style.display = "none";
+					laughingFace.style.width = "0";
 					basicFace.style.display = "none";
 					blinkingFace.style.display = "block"
 					
@@ -250,23 +263,24 @@
 					misunderstandingFace.style.width = "0";
 					lookingFace.style.display = "none";
 					lookingFace.style.width = "0";
+					wowFace.style.display = "none";
+					wowFace.style.width = "0";
+					tiredFace.style.display = "none";
+					tiredFace.style.width = "0";
+					laughingFace.style.display = "none";
+					laughingFace.style.width = "0";
 					basicFace.style.display = "block";
 					blinkingFace.style.display = "none"
 	
 					basicFaceDisplay()
 				}
 
-				// basicFace.style.display = "block";
-				// blinkingFace.style.display = "none"
-
-				// basicFaceDisplay()
-
 			}, 1150);
 		}, 6000)
 	}
 blinking() //активировано
 
-	//показ удивления Лося
+	//показ удивления от наводки на Лося
 	function wonderingFaceDisplay(){
 		pfpBox.style.animation = "none";
 	
@@ -290,6 +304,15 @@ blinking() //активировано
 
 		lookingFace.style.display = "none";
 		lookingFace.style.width = "0";
+
+		wowFace.style.display = "none";
+		wowFace.style.width = "0";
+
+		laughingFace.style.display = "none";
+		laughingFace.style.width = "0";
+
+		tiredFace.style.display = "none";
+		tiredFace.style.width = "0";
 	}
 
 	//показ мёртвого взгляда Лося
@@ -334,6 +357,15 @@ blinking() //активировано
 
 		lookingFace.style.display = "none";
 		lookingFace.style.width = "0";
+
+		wowFace.style.display = "none";
+		wowFace.style.width = "0";
+
+		laughingFace.style.display = "none";
+		laughingFace.style.width = "0";
+
+		tiredFace.style.display = "none";
+		tiredFace.style.width = "0";
 	}
 
 	//показ мёртвого лица
@@ -361,6 +393,15 @@ blinking() //активировано
 
 		lookingFace.style.display = "none";
 		lookingFace.style.width = "0";
+
+		wowFace.style.display = "none";
+		wowFace.style.width = "0";
+
+		laughingFace.style.display = "none";
+		laughingFace.style.width = "0";
+
+		tiredFace.style.display = "none";
+		tiredFace.style.width = "0";
 	}
 
 	//показ злого лица
@@ -393,6 +434,15 @@ blinking() //активировано
 
 			lookingFace.style.display = "none";
 			lookingFace.style.width = "0";
+
+			wowFace.style.display = "none";
+			wowFace.style.width = "0";
+
+			laughingFace.style.display = "none";
+			laughingFace.style.width = "0";
+
+			tiredFace.style.display = "none";
+			tiredFace.style.width = "0";
 		}
 
 
@@ -425,6 +475,15 @@ blinking() //активировано
 
 			lookingFace.style.display = "none";
 			lookingFace.style.width = "0";
+
+			wowFace.style.display = "none";
+			wowFace.style.width = "0";
+
+			laughingFace.style.display = "none";
+			laughingFace.style.width = "0";
+
+			tiredFace.style.display = "none";
+			tiredFace.style.width = "0";
 		}
 	}
 
@@ -459,6 +518,15 @@ blinking() //активировано
 
 			lookingFace.style.display = "none";
 			lookingFace.style.width = "0";
+
+			wowFace.style.display = "none";
+			wowFace.style.width = "0";
+
+			laughingFace.style.display = "none";
+			laughingFace.style.width = "0";
+
+			tiredFace.style.display = "none";
+			tiredFace.style.width = "0";
 		}
 	}
 
@@ -493,11 +561,148 @@ blinking() //активировано
 			lookingFace.style.display = "block";
 			lookingFace.style.width = "";
 
+			wowFace.style.display = "none";
+			wowFace.style.width = "0";
+
+			laughingFace.style.display = "none";
+			laughingFace.style.width = "0";
+
+			tiredFace.style.display = "none";
+			tiredFace.style.width = "0";
+
 			
 		}
 	}
-	
 
+	//показ удивленного лица
+	function wowFaceDisplay(){
+		if(wonderingFace.style.display == "block"){
+			wonderingFaceDisplay()
+		} 
+		else{
+			basicFace.style.display = "none";
+			basicFace.style.width = "0";
+	
+			deadFace.style.display = "none";
+			deadFace.style.width = "0";
+			
+			blinkingFace.style.width = "";
+
+			wonderingFace.style.width = "0";
+			wonderingFace.style.display = "none";
+	
+			deadLookingFace.style.display = "none";
+
+			misunderstandingFace.style.display = "none";
+			misunderstandingFace.style.width = "0";
+	
+			angryFace.style.display = "none";
+			angryFace.style.width = "0";
+
+			shockingFace.style.display = "none";
+			shockingFace.style.width = "0";
+
+			lookingFace.style.display = "none";
+			lookingFace.style.width = "0";
+
+			wowFace.style.display = "block";
+			wowFace.style.width = "";
+
+			laughingFace.style.display = "none";
+			laughingFace.style.width = "0";
+
+			tiredFace.style.display = "none";
+			tiredFace.style.width = "0";
+
+		}
+	}
+
+	//показ смешного лица
+	function laughingFaceDisplay(){
+		if(wonderingFace.style.display == "block"){
+			wonderingFaceDisplay()
+		} 
+		else{
+			basicFace.style.display = "none";
+			basicFace.style.width = "0";
+	
+			deadFace.style.display = "none";
+			deadFace.style.width = "0";
+			
+			blinkingFace.style.width = "";
+
+			wonderingFace.style.width = "0";
+			wonderingFace.style.display = "none";
+	
+			deadLookingFace.style.display = "none";
+
+			misunderstandingFace.style.display = "none";
+			misunderstandingFace.style.width = "0";
+	
+			angryFace.style.display = "none";
+			angryFace.style.width = "0";
+
+			shockingFace.style.display = "none";
+			shockingFace.style.width = "0";
+
+			lookingFace.style.display = "none";
+			lookingFace.style.width = "0";
+
+			wowFace.style.display = "none";
+			wowFace.style.width = "0";
+
+			laughingFace.style.display = "block";
+			laughingFace.style.width = "";
+
+			tiredFace.style.display = "none";
+			tiredFace.style.width = "0";
+
+		}
+	}
+
+	//показ уставшего лица
+	function tiredFaceDisplay(){
+		if(wonderingFace.style.display == "block"){
+			wonderingFaceDisplay()
+		} 
+		else{
+			basicFace.style.display = "none";
+			basicFace.style.width = "0";
+	
+			deadFace.style.display = "none";
+			deadFace.style.width = "0";
+			
+			blinkingFace.style.width = "";
+
+			wonderingFace.style.width = "0";
+			wonderingFace.style.display = "none";
+	
+			deadLookingFace.style.display = "none";
+
+			misunderstandingFace.style.display = "none";
+			misunderstandingFace.style.width = "0";
+	
+			angryFace.style.display = "none";
+			angryFace.style.width = "0";
+
+			shockingFace.style.display = "none";
+			shockingFace.style.width = "0";
+
+			lookingFace.style.display = "none";
+			lookingFace.style.width = "0";
+
+			wowFace.style.display = "none";
+			wowFace.style.width = "0";
+
+			laughingFace.style.display = "none";
+			laughingFace.style.width = "0";
+
+			tiredFace.style.display = "block";
+			tiredFace.style.width = "";
+
+		}
+	}
+	
 //ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
 
 	//функция для выведения рандомного числа из длины массива
@@ -520,10 +725,8 @@ blinking() //активировано
 	//Вступительное сообщение 
 	setTimeout(() => {
 		chatbotSendMessage(smalltalk[randomArrayNumber(smalltalk)]);
-		console.warn("Я слежу за тобой")
-
+		console.warn("В консоль лезут только нубы")
 		}, 1500);
-
 	//Добавление в HTML уже готовое сообщение от бота
 		function chatbotSendMessage(messageText){
 			const messageElement = document.createElement("div");
@@ -539,7 +742,6 @@ blinking() //активировано
 			//скроллим вниз по сообщениям
 			chatContainer.scrollTop = chatContainer.scrollHeight;
 		}
-
 	//Добавление в HTML уже готовое сообщение от пользователя
 		function sendMessage(messageText){
 
@@ -558,17 +760,12 @@ blinking() //активировано
 		chatContainer.scrollTop = chatContainer.scrollHeight;
 
 	}
-
 	//функция отправки сообщения от пользователя через клавишу enter
 	input.addEventListener("keypress", function(e){
 		if(e.which == 13){
 			clickSendBtn();
 		}
 	});		
-	
-	
-	
-	
 	//функция отправки сообщения от пользователя
 	function clickSendBtn(){
 		if(input.value == ""){
@@ -733,7 +930,7 @@ basicMode() //активировано
 
 	//ФИЛЬТР ДЛЯ СООБЩЕНИЯ ПОЛЬЗОВАТЕЛЯ
 
-	let marks = /[,.!?'\s]+/; 
+	let marks = /[,.!?'-\s]+/; 
 	// параметр, который фильтрует знаки через regexp
 	let yo = /ё/g;
 	//параметр для фильтра буквы ё, g - небоходимый флаг для global, берет все элементы, а не только первый
@@ -774,6 +971,7 @@ basicMode() //активировано
 	const natureMatch = natureWords.filter(element => message.includes(element));
 	const natureNamesMatch = natureNames.filter(element => message.includes(element));
 	const langMatch = langNames.filter(element => message.includes(element));
+	const langRussianMatch = langRussian.filter(element => message.includes(element));
 	const jokesMatch = jokesWords.filter(element => message.includes(element));
 
 	//искусство: кино, музыка
@@ -794,12 +992,14 @@ basicMode() //активировано
 	const positiveDescriptionMatch = positiveDescriptionWords.filter(element => message.includes(element));
 	const conjunctionMatch = conjunction.filter(element => message.includes(element));
 	const randomSmilesMatch = randomSmiles.filter(element => message.includes(element));
+	const weatherWordsMatch = weatherWords.filter(element => message.includes(element));
 
 	//отдельные глаголы
 	const verbLoveMatch = verbLove.filter(element => message.includes(element));
 	const verbNameMatch = verbName.filter(element => message.includes(element));
 	const verbDrinkMatch = verbDrink.filter(element => message.includes(element));
-
+	const verbHateMatch = verbHate.filter(element => message.includes(element));
+	const verbSmokeMatch = verbSmoke.filter(element => message.includes(element));
 
 //ОСКОРБЛЕНИЯ, ГРУБОСТЬ
 		//личное грубое оскорбление Лосю
@@ -820,12 +1020,12 @@ basicMode() //активировано
 	}
 		//легкая колкость лично Лосю
 	else if(youMatch.length != 0 && rudeMatch.length != 0){
-		angryFaceDisplay()
+		tiredFaceDisplay()
 		setTimeout(() => {
 			let answers =[
 				`Ты так не выражайся`,
 				`Не говори ${toLowerCaseAnswer(rudeMatch[0])} в мою сторону`,
-				`В мой адрес слово ${toLowerCaseAnswer(toUpperCaseAnswer(rudeMatch[0]))} не произноси`,
+				`В мой адрес слово ${toLowerCaseAnswer(rudeMatch[0])} не произноси`,
 				`${negativeMessages[randomArrayNumber(negativeMessages)]}`,
 				`${disagreeWords[randomArrayNumber(disagreeWords)]}, не говори так. ${negativeMessages[randomArrayNumber(negativeMessages)]}`,
 				"Сам ты такой",
@@ -835,8 +1035,24 @@ basicMode() //активировано
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1000);
 	}
+		//назвать Лося животным
+	else if(youMatch.length != 0 && animalMatch.length != 0){
+		tiredFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Очень оригинально`,
+				`Сказать ${toLowerCaseAnswer(animalMatch[0])} в мой адрес, очень смешно`,
+				`В мой адрес слово ${toLowerCaseAnswer(animalMatch[0])} не произноси`,
+				`${negativeMessages[randomArrayNumber(negativeMessages)]}`,
+				"Ты сам животное",
+			]	
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1000);
+	}	
 		//личное грубое оскорбление самого себя
-	else if(meMatch.length != 0 && negativeMatch.length != 0 ||rudeMatch.length != 0 ){
+	else if(meMatch.length != 0 && (negativeMatch.length != 0 ||rudeMatch.length != 0 )){
+		wowFaceDisplay()
 		setTimeout(() => {
 			let answers =[
 				`Грубовато, но про тебя можно так сказать`,
@@ -849,6 +1065,20 @@ basicMode() //активировано
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1000);
 	}
+		//личное назвать себя животным
+		else if(meMatch.length != 0 && animalMatch.length != 0 ){
+			laughingFaceDisplay()
+			setTimeout(() => {
+				let answers =[
+					`${agreeWords[randomArrayNumber(agreeWords)]}`,
+					`${toUpperCaseAnswer(animalMatch[0])}? Да, вполне ты`,
+					`Ты еще то животное`,
+					`Ну, тебе виднее`,
+				]	
+				let answer = answers[randomArrayNumber(answers)];
+				chatbotSendMessage(toUpperCaseAnswer(answer))
+			}, 1000);
+		}	
 		//обсценная лексика
 	else if(negativeMatch.length != 0){
 		shockingFaceDisplay()
@@ -868,7 +1098,7 @@ basicMode() //активировано
 	}
 		//легкие колкости
 	else if(rudeMatch.length != 0){
-		shockingFaceDisplay()
+		tiredFaceDisplay()
 		setTimeout(() => {
 			let answers =[
 				`${rudeMessages[randomArrayNumber(rudeMessages)]}`,
@@ -881,7 +1111,15 @@ basicMode() //активировано
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1400);	
-	}			
+	}
+	//ненавидеть лося
+	else if(verbHateMatch.length != 0 &&(youMatch.length != 0 || youPossessiveMatch.length != 0)){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answer = `${verbHateMatch[0]}? За что так со мной`;
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1400);
+	}					
 //ПРИВЕТСТВИЕ И ПРОЩАНИЕ
 		//приветствие
 	else if(greetingsMatch.length != 0){
@@ -1062,80 +1300,84 @@ basicMode() //активировано
 	}	
 		//что любишь пить?
 	else if((drinksWordsMatch.length != 0 || verbDrinkMatch.length != 0 )&& verbLoveMatch.length != 0){
-			setTimeout(() => {
-
-				let answers =[
-					`Пить? Странный вопрос. Ну, иногда могу выпить чаю`,
-					`Я пью чай, кофе там. Не особо принципиально.`,
-				]
-				let answer = answers[randomArrayNumber(answers)];
-				chatbotSendMessage(toUpperCaseAnswer(answer))			
-
-			}, 1300);
+		shockingFaceDisplay()		
+		setTimeout(() => {
+			let answers =[
+				`Пить? Странный вопрос. Ну, иногда могу выпить чаю`,
+				`Я пью чай, кофе там. Не особо принципиально.`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))			
+		}, 1300);
 	}
 		//что ты пьешь?
 	else if((drinksWordsMatch.length != 0 || verbDrinkMatch.length != 0 )&& youMatch.length != 0){
-			setTimeout(() => {
-
-				let answers =[
-					`Воду. Что еще я пью?`,
-					`Ромашковый чай я пью, от нервов`,
-					`Я пью зеленый чай, кофе пореже, не очень полезно`,
-				]
-				let answer = answers[randomArrayNumber(answers)];
-				chatbotSendMessage(toUpperCaseAnswer(answer))			
-
-			}, 1300);
-	}			
-
+		shockingFaceDisplay()	
+		setTimeout(() => {
+			let answers =[
+				`Я пью воду. Что еще я могу пить`,
+				`Ромашковый чай я пью, от нервов`,
+				`Я пью зеленый чай, кофе пореже, не очень полезно`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))			
+		}, 1300);
+	}
+		//сказать название напитков			
+	else if(drinksWordsMatch.length != 0){
+		shockingFaceDisplay()	
+		setTimeout(() => {
+			let answers =[
+				`${drinksWordsMatch[0]}? Хочешь поговорить про напитки?`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))			
+		}, 1300);
+	}
 //словарь названий животных
 		//животные
 	else if(animalMatch.length != 0){
-			setTimeout(() => {
-
-				let answer = processTopics(animalMatch[0], animalDescription[randomArrayNumber(animalDescription)], animalQuestions[randomArrayNumber(animalQuestions)]);
-				chatbotSendMessage(toUpperCaseAnswer(answer))
-			}, 1300);
+		laughingFaceDisplay()
+		setTimeout(() => {
+			let answer = processTopics(animalMatch[0], animalDescription[randomArrayNumber(animalDescription)], animalQuestions[randomArrayNumber(animalQuestions)]);
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
 	}
-
 		//говорить слово природа
 	else if(natureNamesMatch.length != 0){
+		wowFaceDisplay()
 			setTimeout(() => {
-
-				let answers =[
-					`${natureNamesMatch[0]}? Хочешь поговорить про природу? Про что конкретно`,
-					`Я люблю природу. ${natureQuestions[randomArrayNumber(natureQuestions)]}`,
-					`Ну вот. ${natureQuestions[randomArrayNumber(natureQuestions)]}`,
-				]
-				let answer = answers[randomArrayNumber(answers)];
-				chatbotSendMessage(toUpperCaseAnswer(answer))			
-
-			}, 1300);
+			let answers =[
+				`${natureNamesMatch[0]}? Хочешь поговорить про природу? Про что конкретно`,
+				`Я люблю природу. ${natureQuestions[randomArrayNumber(natureQuestions)]}`,
+				`Ну вот. ${natureQuestions[randomArrayNumber(natureQuestions)]}`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))			
+		}, 1300);
 	}	
 //словарь названий природы				
 		//природа
 	else if(natureMatch.length != 0){
-			setTimeout(() => {
-
-				let answer = processTopics(natureMatch[0], natureDescription[randomArrayNumber(natureDescription)], natureQuestions[randomArrayNumber(natureQuestions)]);
-				chatbotSendMessage(toUpperCaseAnswer(answer))
-			}, 1300);
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answer = processTopics(natureMatch[0], natureDescription[randomArrayNumber(natureDescription)], natureQuestions[randomArrayNumber(natureQuestions)]);
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
 	}	
 //**//**//**//**//	
-
-
 		//языки и лингвистика лично у Папы Смурфа
-	else if(youMatch.length != 0 && langMatch.length != 0){
+	else if((youMatch.length != 0 || youPossessiveMatch.length != 0) && (langMatch.length != 0 || langRussianMatch.length != 0)){
 			setTimeout(() => {
 
-				if(langMatch[0] == "english"){
+				if(langRussianMatch.length != 0){
 		
-					let answer = `${agreeWords[randomArrayNumber(agreeWords)]}, I speak English`;
+					let answer = `${agreeWords[randomArrayNumber(agreeWords)]}, а что не видно? Говорю`;
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 				}
-				else if(langMatch[0] != "english"){
+				else{
 					
-					let answer = `${toUpperCaseAnswer(langMatch[0])}? ${langNamesMessages[randomArrayNumber(langNamesMessages)]}`;
+					let answer = `${toUpperCaseAnswer(langMatch[0])}? Нет.`;
 					chatbotSendMessage(toUpperCaseAnswer(answer))
 
 				}
@@ -1292,13 +1534,13 @@ basicMode() //активировано
 						
 			}, 1300);
 	}
-
 //ПОГОДА
-	else if(message.includes("weather")){
+	else if(weatherWordsMatch.length != 0){
+		shockingFaceDisplay()
 		setTimeout(() => {
-			let answer = weatherMessages[randomArrayNumber(weatherMessages)];
+			let answer = `${toUpperCaseAnswer(weatherWordsMatch[0])}? Я не слежу за погодой, хотя  ${toLowerCaseAnswer(weatherMessages[randomArrayNumber(weatherMessages)])}`;
 			chatbotSendMessage(toUpperCaseAnswer(answer))
-		}, 1400);		
+		}, 1200);		
 	}
 //ШУТКИ	
 		//Лося назвали шуткой
@@ -1316,6 +1558,7 @@ basicMode() //активировано
 	}						
 		//попросили шутки
 	else if(jokesMatch.length != 0){
+		laughingFaceDisplay()
 		setTimeout(() => {
 			let answers = [
 				`${jokes[randomArrayNumber(jokes)]}`,
@@ -1328,7 +1571,7 @@ basicMode() //активировано
 			]
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))			
-		}, 1300);
+		}, 1200);
 	}
 //ВОПРОСЫ	
 		//спросить время (what + time)
@@ -1556,18 +1799,16 @@ basicMode() //активировано
 
 		//умные цитаты и мотивация
 	else if(quoteMatch.length != 0){
-			setTimeout(() => {
-
-				let answers =[
-					`${quotes[randomArrayNumber(quotes)]}`,
-					`${agreeWords[randomArrayNumber(agreeWords)]}. ${quotes[randomArrayNumber(quotes)]}`,
-					`${toUpperCaseAnswer(introductoryWords[randomArrayNumber(introductoryWords)])}, ${toLowerCaseAnswer(quotes[randomArrayNumber(quotes)])}`,
-				
+		laughingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`${quotes[randomArrayNumber(quotes)]}`,
+				`${agreeWords[randomArrayNumber(agreeWords)]}. ${quotes[randomArrayNumber(quotes)]}`,
+				`${toUpperCaseAnswer(introductoryWords[randomArrayNumber(introductoryWords)])}, ${toLowerCaseAnswer(quotes[randomArrayNumber(quotes)])}`,
 				]
-				
 				let answer = answers[randomArrayNumber(answers)];
 				chatbotSendMessage(toUpperCaseAnswer(answer))
-			}, 1200);
+		}, 1200);
 	}
 //ОСОБЫЕ УПОМИНАНИЯ
 		//thank you
@@ -1691,35 +1932,12 @@ basicMode() //активировано
 				let answer = answers[randomArrayNumber(answers)];
 				chatbotSendMessage(toUpperCaseAnswer(answer))
 			}, 1400);	
-	}	
-		//достаточно
-	else if(message.includes("enough")){
-
-			setTimeout(() => {
-				let answers =[
-					"Enough is enough",
-					"Yeah, it's enough",
-				]
-				let answer = answers[randomArrayNumber(answers)];
-				chatbotSendMessage(toUpperCaseAnswer(answer))
-			}, 1400);	
-	}						
-		//тусовка
-	else if(message.includes("party") || message.includes("parties")  ){
-
-			setTimeout(() => {
-				let answers =[
-					"I party hard",
-					"Last time I was parting so hard, Gargamel was shocked",
-					"Do you want to party with me?",
-				]
-				let answer = answers[randomArrayNumber(answers)];
-				chatbotSendMessage(toUpperCaseAnswer(answer))
-			}, 1400);	
-	}	
+	}							
+	
 //КОРОТКИЕ ОТВЕТЫ: СОГЛАСИЕ И ОТРИЦАНИЕ, обращение на ты
 		//согласие
 	else if(agreeMatch.length != 0){
+		lookingFaceDisplay()
 		setTimeout(() => {
 			let answers =[
 				`${agreeWords[randomArrayNumber(agreeWords)]}`,
@@ -1733,6 +1951,7 @@ basicMode() //активировано
 	}
 		//несогласие
 	else if(disagreeMatch.length != 0){
+		shockingFaceDisplay()
 		setTimeout(() => {
 			let answers =[
 				`${disagreeWords[randomArrayNumber(disagreeWords)]}`,
@@ -1758,17 +1977,9 @@ basicMode() //активировано
 				chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1400);
 	}			
-		//союзы
-	else if(conjunctionMatch.length != 0 ){
-		shockingFaceDisplay()
-		setTimeout(() => {
-			let answer = `${conjunctionMatch[0]}?`;
-			chatbotSendMessage(toUpperCaseAnswer(answer))
-		}, 1400);
-	}
 	//смайлики
 	else if(randomSmilesMatch.length != 0 ){
-
+		laughingFaceDisplay()
 		setTimeout(() => {
 			let answer = `${randomSmiles[randomArrayNumber(randomSmiles)]}`;
 			chatbotSendMessage(toUpperCaseAnswer(answer))
@@ -1777,7 +1988,6 @@ basicMode() //активировано
 //ПРЕДПОСЛЕДНЯЯ КАТЕГОРИЯ
 		//назвали самого Лося
 	else if(losCallingMatch.length != 0){
-
 		lookingFaceDisplay()
 		setTimeout(() => {
 			let answer = losCallingMessages[randomArrayNumber(losCallingMessages)];
@@ -1789,8 +1999,8 @@ basicMode() //активировано
 		lookingFaceDisplay()
 		setTimeout(() => {
 			let answers =[
-				`Ага, не я`,
-				`Точно не я`,
+				`Это не про меня`,
+				`Я? Да не`,
 			]
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
@@ -1807,13 +2017,126 @@ basicMode() //активировано
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1300);
-	}				
+	}
+		//говорят про твой, твоя и тд + НЕ
+	else if(message.includes("не") && youPossessiveMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`А не ${youPossessiveMatch[0]}?`,
+				`${youPossessiveMatch[0]}? Да не`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
+	}		
+		//говорят про твой, твоя и тд
+	else if(youPossessiveMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`${youPossessiveMatch[0]}?`,
+				`${youPossessiveMatch[0]}? Ну да`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
+	}
+		//пользователь говорит про себя + НЕ
+	else if(message.includes("не") && meMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`К тебе не относится, ну да`,
+				`Конечно, не с тобой связано`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
+	}	
+		//пользователь говорит про себя
+	else if(meMatch.length != 0 ||mePossessMatch.length != 0){
+		wowFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Про тебя и не такое говорят`,
+				`Иначе у тебя не бывает`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
+	}		
+		//союзы
+	else if(conjunctionMatch.length != 0 ){
+		shockingFaceDisplay()
+		setTimeout(() => {
+			let answer = `${conjunctionMatch[0]}?`;
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1400);
+	}
+//ГЛАГОЛЫ
+		//любить
+		else if(verbLoveMatch.length != 0 ){
+			wowFaceDisplay()
+			setTimeout(() => {
+				let answer = `${verbLoveMatch[0]}? А ты любишь?`;
+				chatbotSendMessage(toUpperCaseAnswer(answer))
+			}, 1400);
+		}
+		//называть
+		else if(verbNameMatch.length != 0 ){
+			wowFaceDisplay()
+			setTimeout(() => {
+				let answer = `${verbNameMatch[0]}? А как иначе назвать?`;
+				chatbotSendMessage(toUpperCaseAnswer(answer))
+			}, 1400);
+		}
+		//пить
+		else if(verbDrinkMatch.length != 0 ){
+			shockingFaceDisplay()
+			setTimeout(() => {
+				let answer = `${verbDrinkMatch[0]}? А сам-то пьешь?`;
+				chatbotSendMessage(toUpperCaseAnswer(answer))
+			}, 1400);
+		}
+		//курить
+		else if(verbSmokeMatch.length != 0 ){
+			tiredFaceDisplay()
+			setTimeout(() => {
+				let answer = `${verbSmokeMatch[0]}? Сам-то дымышь поди`;
+				chatbotSendMessage(toUpperCaseAnswer(answer))
+			}, 1400);
+		}							
+		//ненавидеть
+		else if(verbHateMatch.length != 0 ){
+			lookingFaceDisplay()
+			setTimeout(() => {
+				let answer = `${verbHateMatch[0]}, всмысле? А тебе будто не нравится?`;
+				chatbotSendMessage(toUpperCaseAnswer(answer))
+			}, 1400);
+		}							
+		
+		//просто НЕ
+	else if(message.includes("не")){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Не?`,
+				`Да не`,
+				`Угу`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
+	}	
+
+	
 //АБСОЛЮТНОЕ НЕПОНИМАНИЕ
 	else{
 		misunderstandingFaceDisplay()
 		setTimeout(() => {
 			const answers = [
-				`${binderPhrases[randomArrayNumber(binderPhrases)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}, but ${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
+				`${binderPhrases[randomArrayNumber(binderPhrases)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}, но ${toLowerCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
 				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
