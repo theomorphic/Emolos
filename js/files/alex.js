@@ -13,6 +13,7 @@ const alex = [
 	"alyosha",
 	"lex",
 	"alexei",
+	"китчен","китчена","китчену","китченом","китчены",
 ]
 export{alex}
 const alexResponse = [
