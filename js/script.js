@@ -944,7 +944,7 @@ basicMode() //активировано
 	//параметр для фильтра буквы ё, g - небоходимый флаг для global, берет все элементы, а не только первый
 	let message = new String(user.message).toLowerCase().replaceAll(yo, "е").split(marks);
 	//создает массив из сообщения
-	console.log(message)
+	
 	//ТОЧКИ СОПРИКОСНОВЕНИЯ, СОВПАДЕНИЯ С ИЗВЕСТНЫМИ ДАННЫМИ
 
 	//личный счёт
@@ -1000,6 +1000,7 @@ basicMode() //активировано
 
 	//отдельные слова и категории
 	const positiveDescriptionMatch = positiveDescriptionWords.filter(element => message.includes(element));
+	const descriptionWordsMatch = descriptionWords.filter(element => message.includes(element));
 	const conjunctionMatch = conjunction.filter(element => message.includes(element));
 	const randomSmilesMatch = randomSmiles.filter(element => message.includes(element));
 	const weatherWordsMatch = weatherWords.filter(element => message.includes(element));
@@ -2166,7 +2167,19 @@ basicMode() //активировано
 				let answer = answers[randomArrayNumber(answers)];
 				chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1400);
-	}			
+	}
+		//слова для описания
+	else if(descriptionWordsMatch.length != 0 ){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`${descriptionWordsMatch[0]}?`,
+				`${descriptionWordsMatch[0]}!`,
+			]
+				let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1400);
+	}				
 		//смайлики
 	else if(randomSmilesMatch.length != 0 ){
 		laughingFaceDisplay()
