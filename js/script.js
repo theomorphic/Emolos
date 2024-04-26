@@ -78,14 +78,14 @@
 	//слова несогласия, как короткие, так и отдельные фразы
 	import { introductoryWords as introductoryWords } from "./response.js";
 	//вводные вступительные, заключительные и нейтральные фразы
-	import { binderPhrases as binderPhrases } from "./response.js";
-	//конструкции мосты, вроде "это есть" или "оно такое"
 	import { descriptionWords as descriptionWords } from "./response.js";
 	//прилагательные и наречия для выражения своего мнения
 	import { positiveDescriptionWords as positiveDescriptionWords } from "./response.js";
 	//позитивные слова
 	import { neutralWords as neutralWords } from "./response.js";
 	//нейтральные ответы
+	import { genre as genre } from "./categories.js";
+	//слово жанр, вид и тд
 
 // РЕАКЦИЯ НА ОТДЕЛЬНЫЕ ИМЕНА И ОБРАЩЕНИЯ
 	import { unknownNames as unknownNames } from "./response.js";
@@ -151,6 +151,7 @@
 	import { musicGenres as musicGenres } from "./categories.js";
 	import { musicDescription as musicDescription } from "./categories.js";
 	import { musicQuestions as musicQuestions } from "./categories.js";
+	import { musicWord as musicWord } from "./categories.js";
 	//музыкальные жанры и реакция на них
 	import { langNames as langNames } from "./categories.js";
 	import { langRussian as langRussian } from "./categories.js";
@@ -882,52 +883,52 @@ basicMode() //активировано
 	function discussingMovies(movie, opinion){
 
 	let answers = [
-		`Hmm, I found ${movie} quite intriguing.`,
-		`I must say, ${movie} was simply fantastic!`,
-		`I think ${movie} deserves all the awards.`,
-		`I was pleasantly surprised by ${movie}.`,
-		`I didn't expect the ${movie} to be that good.`,
-		`${movie} really touched my heart.`,
-		`I believe everyone should watch ${movie}.`,
-		`What an emotional journey that ${movie} was.`,
-		`I'm still thinking about that ${movie}. It's ${opinion}.`,
-		`The actors in this ${movie} were exceptional.`,
-		`The soundtrack of ${movie} was breathtaking.`,
-		`I was completely captivated by ${movie}.`,
-		`What an outstanding performance in ${movie}, ${opinion}!`,
-		`The visual effects in ${movie} were mind-blowing.`,
-		`I laughed and cried throughout ${movie}.`,
-		`${movie} is a must-watch for everyone.`,
-		`I can't stop recommending ${opinion} ${movie} to everyone!`,
-		`The storyline of ${movie} was so well-crafted.`,
-		`The dialogues in ${movie} were so powerful.`,
-		`What a masterpiece ${movie} is!`,
-		`I was on the edge of my seat watching ${movie}.`,
-		`The cinematography in ${movie} was stunning.`,
-		`After watching ${movie}, I feel so inspired.`,
-		`I can't get over how ${opinion} ${movie} was.`,
-		`The message conveyed in ${movie} was profound.`,
-		`I want to relive the experience of ${movie}.`,
-		`The cast of ${movie} was perfectly chosen.`,
-		`I have a newfound appreciation for ${movie}.`,
-		`I'll always remember the impact of ${movie}.`,
-		`The setting of ${movie} was so ${opinion}.`,
-		`The climax of ${movie} was so ${opinion}.`,
-		`I'm in awe of the creativity in ${movie}.`,
-		`I couldn't take my eyes off the screen during ${movie}.`,
-		`Every scene in ${movie} was filled with emotion.`,
-		`The transitions in ${movie} were seamless.`,
-		`The ending of ${movie} left me speechless.`,
-		`My favorite part of ${movie} was ${opinion}`,
-		`I was so invested in the characters of ${movie}.`,
-		`The humor in ${movie} was well-placed.`,
-		`The suspense in ${movie} kept me hooked.`,
-		`I connected with the themes of ${movie} deeply.`,
-		`I wish I could watch ${movie} for the first time again.`,
-		`The sound design of ${movie} was superb.`,
-		`${movie} will definitely stay with me for a long time.`,
-		`I felt a range of emotions while watching ${movie}, ${opinion}!`,
-		`I have to say, that ${movie} was truly unforgettable.`,
+		`Хмм, по мне так ${movie} - это крутой фильм.`,
+		`Скажу честно, ${movie} - вот этот фильм было интересно смотреть`,
+		`Мне кажется, ${movie} заслуживает всех наград киноакадемии.`,
+		// `I was pleasantly surprised by ${movie}.`,
+		// `I didn't expect the ${movie} to be that good.`,
+		// `${movie} really touched my heart.`,
+		// `I believe everyone should watch ${movie}.`,
+		// `What an emotional journey that ${movie} was.`,
+		// `I'm still thinking about that ${movie}. It's ${opinion}.`,
+		// `The actors in this ${movie} were exceptional.`,
+		// `The soundtrack of ${movie} was breathtaking.`,
+		// `I was completely captivated by ${movie}.`,
+		// `What an outstanding performance in ${movie}, ${opinion}!`,
+		// `The visual effects in ${movie} were mind-blowing.`,
+		// `I laughed and cried throughout ${movie}.`,
+		// `${movie} is a must-watch for everyone.`,
+		// `I can't stop recommending ${opinion} ${movie} to everyone!`,
+		// `The storyline of ${movie} was so well-crafted.`,
+		// `The dialogues in ${movie} were so powerful.`,
+		// `What a masterpiece ${movie} is!`,
+		// `I was on the edge of my seat watching ${movie}.`,
+		// `The cinematography in ${movie} was stunning.`,
+		// `After watching ${movie}, I feel so inspired.`,
+		// `I can't get over how ${opinion} ${movie} was.`,
+		// `The message conveyed in ${movie} was profound.`,
+		// `I want to relive the experience of ${movie}.`,
+		// `The cast of ${movie} was perfectly chosen.`,
+		// `I have a newfound appreciation for ${movie}.`,
+		// `I'll always remember the impact of ${movie}.`,
+		// `The setting of ${movie} was so ${opinion}.`,
+		// `The climax of ${movie} was so ${opinion}.`,
+		// `I'm in awe of the creativity in ${movie}.`,
+		// `I couldn't take my eyes off the screen during ${movie}.`,
+		// `Every scene in ${movie} was filled with emotion.`,
+		// `The transitions in ${movie} were seamless.`,
+		// `The ending of ${movie} left me speechless.`,
+		// `My favorite part of ${movie} was ${opinion}`,
+		// `I was so invested in the characters of ${movie}.`,
+		// `The humor in ${movie} was well-placed.`,
+		// `The suspense in ${movie} kept me hooked.`,
+		// `I connected with the themes of ${movie} deeply.`,
+		// `I wish I could watch ${movie} for the first time again.`,
+		// `The sound design of ${movie} was superb.`,
+		// `${movie} will definitely stay with me for a long time.`,
+		// `I felt a range of emotions while watching ${movie}, ${opinion}!`,
+		// `I have to say, that ${movie} was truly unforgettable.`,
 	]
 
 	let answer = answers[randomArrayNumber(answers)];
@@ -989,6 +990,8 @@ basicMode() //активировано
 	const musicMatch = musicGenres.filter(element => message.includes(element));
 	const movieWordsMatch = movieWords.filter(element => message.includes(element));
 	const directorsNamesMatch = directorsNames.filter(element => message.includes(element));
+	const genreMatch = genre.filter(element => message.includes(element));
+	const musicWordMatch = musicWord.filter(element => message.includes(element));
 
 	//мотивационные цитаты
 	const quoteMatch = quotesAsking.filter(element => message.includes(element));
@@ -1455,7 +1458,9 @@ basicMode() //активировано
 	//ИСКУССТВО: КИНО, МУЗЫКА
 		//музыка
 		//общий вопрос про музыку лично Лосю
-	else if(message.includes("music") && (youPossessiveMatch.length != 0 || youMatch.length != 0)){
+	else if(musicWordMatch.length != 0 && (youPossessiveMatch.length != 0 || youMatch.length != 0)){
+		shockingFaceDisplay()
+
 			setTimeout(() => {
 
 				let answers = [
@@ -1471,8 +1476,31 @@ basicMode() //активировано
 						
 			}, 1300);
 	}
+
+		//разгоны про жанры
+	else if(musicMatch.length != 0){
+			setTimeout(() => {
+
+				let answer = processTopics(musicMatch[0], musicDescription[randomArrayNumber(musicDescription)], musicQuestions[randomArrayNumber(musicQuestions)]);
+				chatbotSendMessage(toUpperCaseAnswer(answer))
+			}, 1300);
+	}
+		//музыкальные жанры
+	else if(musicWordMatch.length != 0 && genreMatch.length != 0){
+			setTimeout(() => {
+
+				let answers = [
+					`Жанр музыки, ${musicGenres[randomArrayNumber(musicGenres)]} звучит ${musicDescription[randomArrayNumber(musicDescription)]}`,
+					`${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} и ${musicGenres[randomArrayNumber(musicGenres)]} для меня звучат ${musicDescription[randomArrayNumber(musicDescription)]}. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is ${musicDescription[randomArrayNumber(musicDescription)]}`,
+				]
+						
+				let answer = answers[randomArrayNumber(answers)];
+				chatbotSendMessage(toUpperCaseAnswer(answer))
+			}, 1300);
+	}
 		//просто про музыку
-	else if(message.includes("music")){
+	else if(musicWordMatch.length != 0){
+		shockingFaceDisplay()
 			setTimeout(() => {
 
 				let answers = [
@@ -1488,75 +1516,60 @@ basicMode() //активировано
 				chatbotSendMessage(toUpperCaseAnswer(answer))
 						
 			}, 1300);
-	}
-		//разгоны про жанры
-	else if(musicMatch.length != 0){
-			setTimeout(() => {
-
-				let answer = processTopics(musicMatch[0], musicDescription[randomArrayNumber(musicDescription)], musicQuestions[randomArrayNumber(musicQuestions)]);
-				chatbotSendMessage(toUpperCaseAnswer(answer))
-			}, 1300);
-	}
-		//музыкальные жанры
-	else if(message.includes("music") && (message.includes("genre") || message.includes("genres"))){
-			setTimeout(() => {
-
-				let answers = [
-					`Music genre? Hmm, let me think, ${musicGenres[randomArrayNumber(musicGenres)]} is ${musicDescription[randomArrayNumber(musicDescription)]}`,
-					`${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} and ${musicGenres[randomArrayNumber(musicGenres)]} are ${musicDescription[randomArrayNumber(musicDescription)]}. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is ${musicDescription[randomArrayNumber(musicDescription)]}`,
-				]
-						
-				let answer = answers[randomArrayNumber(answers)];
-				chatbotSendMessage(toUpperCaseAnswer(answer))
-			}, 1300);
-	}
+	}	
 		//кино
 		//любимые фильмы Лося
-	else if(youMatch.length != 0 && movieWordsMatch.length != 0){
-			setTimeout(() => {
-
-				let answers = [
-					`It's hard to name just one thing, but ${movieTitles[randomArrayNumber(movieTitles)]} comes to mind`,
-					`${discussingMovies(movieTitles[randomArrayNumber(movieTitles)], positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)])}`,
-					`My favorite movie is probably ${movieTitles[randomArrayNumber(movieTitles)]}, it's so ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
-				]
-						
-				let answer = answers[randomArrayNumber(answers)];
-				chatbotSendMessage(toUpperCaseAnswer(answer))
-						
-			}, 1300);
+	else if( (youMatch.length != 0 || youPossessiveMatch.length != 0 ) && verbLoveMatch.length != 0 && movieWordsMatch.length != 0){
+		laughingFaceDisplay()
+		setTimeout(() => {
+			let answers = [
+				`Я сейчас редко смотрю кино, но на ум приходит ${movieTitles[randomArrayNumber(movieTitles)]}`,
+				`${discussingMovies(movieTitles[randomArrayNumber(movieTitles)])}`,
+				`Сложно выбрать любимый фильм, вспоминается ${movieTitles[randomArrayNumber(movieTitles)]}, смотрится ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+			]		
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))			
+		}, 1300);
 	}
 		//жанры кино
-	else if(movieWordsMatch.length != 0 && (message.includes("genre") || message.includes("genres"))){
-			setTimeout(() => {
-
-				let answers = [
-				`Movie genre? Well, I don't know much, I like just movies. ${movieTitles[randomArrayNumber(movieTitles)]} is really ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
-				`Sorry, my wisdom does not extend to movie genres. But I do know some music genres! ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is ${musicDescription[randomArrayNumber(musicDescription)]}`
-				]
-				let answer = answers[randomArrayNumber(answers)];
-
-				chatbotSendMessage(toUpperCaseAnswer(answer))
+	else if(movieWordsMatch.length != 0 && genreMatch.length != 0){
+		angryFaceDisplay()
+		setTimeout(() => {
+			let answers = [
+				`Жанр кино? Да их сотни`,
+				`Мне лень перечислять жанры`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
 						
-			}, 1300);
+		}, 1300);
+	}
+		//перечисли кино
+	else if (verbNameMatch.length != 0 && movieWordsMatch.length != 0){
+		shockingFaceDisplay()
+		setTimeout(() => {
+
+			let answer = `${movieTitles[randomArrayNumber(movieTitles)]}, ${movieTitles[randomArrayNumber(movieTitles)]} и еще ${movieTitles[randomArrayNumber(movieTitles)]}`;
+
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+			
+		}, 1400);
 	}
 		//просто упомянули кино
 	else if(movieWordsMatch.length != 0){
-			setTimeout(() => {
-
-				let answers = [
-					`I love cinéma! So about ${movieWordsMatch[0]}, I bet you have seen ${movieTitles[randomArrayNumber(movieTitles)]}? Isn't it ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
-					`I know a good movie! ${movieTitles[randomArrayNumber(movieTitles)]} is really ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
-					`I can recommend you ${movieTitles[randomArrayNumber(movieTitles)]}`,
-					`${discussingMovies(movieTitles[randomArrayNumber(movieTitles)], positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)])}`,
-					`${discussingMovies(movieTitles[randomArrayNumber(movieTitles)], positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)])}`,
-					`${discussingMovies(movieTitles[randomArrayNumber(movieTitles)], positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)])}`,
-				]
-						
-				let answer = answers[randomArrayNumber(answers)];
-				chatbotSendMessage(toUpperCaseAnswer(answer))
-						
-			}, 1300);
+		laughingFaceDisplay()
+		setTimeout(() => {
+			let answers = [
+				`Говоря про ${movieWordsMatch[0]}, ты точно видел такой фильм, как ${movieTitles[randomArrayNumber(movieTitles)]}. Как по мне, весьма ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]} для жанра`,
+				`Вообще, ${movieTitles[randomArrayNumber(movieTitles)]} смотрится крайне ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+				`Глянь еще раз такой малоизвестный фильм, как ${movieTitles[randomArrayNumber(movieTitles)]}`,
+				`${discussingMovies(movieTitles[randomArrayNumber(movieTitles)], positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)])}`,
+				`${discussingMovies(movieTitles[randomArrayNumber(movieTitles)], positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)])}`,
+				`${discussingMovies(movieTitles[randomArrayNumber(movieTitles)], positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)])}`,
+			]		
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))			
+		}, 1300);
 	}
 		//упомянули режиссеров
 	else if(directorsNamesMatch.length != 0){
@@ -1573,32 +1586,28 @@ basicMode() //активировано
 		}, 1300);
 	}	
 		//жанры в целом
-	else if(message.includes("genre") || message.includes("genres")){
-			setTimeout(() => {
-
-				let answers = [
-				`Movie or music genre?`,
-				`Genre? Little Smurf, are we talking about music or moves?`
-				]
-				let answer = answers[randomArrayNumber(answers)];
-
-				chatbotSendMessage(toUpperCaseAnswer(answer))
-						
-			}, 1300);
+	else if(genreMatch.length != 0){
+		wowFaceDisplay()
+		setTimeout(() => {
+			let answers = [
+				`Кино или музыки?`,
+				`Ты о чем? Музыка или кино?`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))			
+		}, 1300);
 	}
-		//искусство, art
-	else if(message.includes("art")){
-			setTimeout(() => {
-
-				let answers = [
-				`Art is limitless. But personally I love movies and music`,
-				`What types of art do you like?`,
-				]
-				let answer = answers[randomArrayNumber(answers)];
-
-				chatbotSendMessage(toUpperCaseAnswer(answer))
-						
-			}, 1300);
+		//искусство
+	else if(message.includes("искусство")){
+		wowFaceDisplay()
+		setTimeout(() => {
+			let answers = [
+				`Искусство не имеет границ, как и твоя тупость`,
+				`А какие виды искусства ты любишь?`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))			
+		}, 1300);
 	}
 //ПОГОДА
 	else if(weatherWordsMatch.length != 0){
@@ -2191,6 +2200,7 @@ basicMode() //активировано
 		setTimeout(() => {
 			let answers =[
 				`${descriptionWordsMatch[0]}?`,
+				`${descriptionWordsMatch[0]}, да?`,
 				`${descriptionWordsMatch[0]}!`,
 			]
 				let answer = answers[randomArrayNumber(answers)];
@@ -2203,6 +2213,7 @@ basicMode() //активировано
 		setTimeout(() => {
 			let answers =[
 				`${musicDescriptionMatch[0]}?`,
+				`${musicDescriptionMatch[0]}, да?`,
 				`${musicDescriptionMatch[0]}!`,
 			]
 				let answer = answers[randomArrayNumber(answers)];
@@ -2213,96 +2224,26 @@ basicMode() //активировано
 	else if(randomSmilesMatch.length != 0 ){
 		laughingFaceDisplay()
 		setTimeout(() => {
-			let answer = `${randomSmiles[randomArrayNumber(randomSmiles)]}`;
+			let answers =[
+				`${randomSmiles[randomArrayNumber(randomSmiles)]}`,
+				`${randomSmiles[randomArrayNumber(randomSmiles)]}`,
+				`${randomSmiles[randomArrayNumber(randomSmiles)]}`,
+				`${randomSmiles[randomArrayNumber(randomSmiles)]}`,
+				`${randomSmiles[randomArrayNumber(randomSmiles)]} Ладно, хорошо`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1400);
 	}
-//ПРЕДПОСЛЕДНЯЯ КАТЕГОРИЯ
-		//назвали самого Лося
-	else if(losCallingMatch.length != 0){
-		lookingFaceDisplay()
-		setTimeout(() => {
-			let answer = losCallingMessages[randomArrayNumber(losCallingMessages)];
-			chatbotSendMessage(toUpperCaseAnswer(answer))
-		}, 1500);
-	}
-		//обращение на ты + НЕ
-	else if(message.includes("не") && youMatch.length != 0){
-		lookingFaceDisplay()
-		setTimeout(() => {
-			let answers =[
-				`Это не про меня`,
-				`Я? Да не`,
-			]
-			let answer = answers[randomArrayNumber(answers)];
-			chatbotSendMessage(toUpperCaseAnswer(answer))
-		}, 1300);
-	}	
-		//обращение на ты
-	else if(youMatch.length != 0){
-		lookingFaceDisplay()
-		setTimeout(() => {
-			let answers =[
-				`Я?`,
-				`Кто, я?`,
-			]
-			let answer = answers[randomArrayNumber(answers)];
-			chatbotSendMessage(toUpperCaseAnswer(answer))
-		}, 1300);
-	}
-		//говорят про твой, твоя и тд + НЕ
-	else if(message.includes("не") && youPossessiveMatch.length != 0){
-		lookingFaceDisplay()
-		setTimeout(() => {
-			let answers =[
-				`А не ${youPossessiveMatch[0]}?`,
-				`${youPossessiveMatch[0]}? Да не`,
-			]
-			let answer = answers[randomArrayNumber(answers)];
-			chatbotSendMessage(toUpperCaseAnswer(answer))
-		}, 1300);
-	}		
-		//говорят про твой, твоя и тд
-	else if(youPossessiveMatch.length != 0){
-		lookingFaceDisplay()
-		setTimeout(() => {
-			let answers =[
-				`${youPossessiveMatch[0]}?`,
-				`${youPossessiveMatch[0]}? Ну да`,
-			]
-			let answer = answers[randomArrayNumber(answers)];
-			chatbotSendMessage(toUpperCaseAnswer(answer))
-		}, 1300);
-	}
-		//пользователь говорит про себя + НЕ
-	else if(message.includes("не") && meMatch.length != 0){
-		lookingFaceDisplay()
-		setTimeout(() => {
-			let answers =[
-				`К тебе не относится, ну да`,
-				`Конечно, не с тобой связано`,
-			]
-			let answer = answers[randomArrayNumber(answers)];
-			chatbotSendMessage(toUpperCaseAnswer(answer))
-		}, 1300);
-	}	
-		//пользователь говорит про себя
-	else if(meMatch.length != 0 ||mePossessMatch.length != 0){
-		wowFaceDisplay()
-		setTimeout(() => {
-			let answers =[
-				`Про тебя и не такое говорят`,
-				`Иначе у тебя не бывает`,
-			]
-			let answer = answers[randomArrayNumber(answers)];
-			chatbotSendMessage(toUpperCaseAnswer(answer))
-		}, 1300);
-	}		
 		//союзы
 	else if(conjunctionMatch.length != 0 ){
 		shockingFaceDisplay()
 		setTimeout(() => {
-			let answer = `${conjunctionMatch[0]}?`;
+			let answers =[
+				`${conjunctionMatch[0]}?`,
+				`${conjunctionMatch[0]}, да?`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1400);
 	}
@@ -2406,12 +2347,94 @@ basicMode() //активировано
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1300);
 	}	
+//ПРЕДПОСЛЕДНЯЯ КАТЕГОРИЯ
+		//назвали самого Лося
+	else if(losCallingMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answer = losCallingMessages[randomArrayNumber(losCallingMessages)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1500);
+	}
+		//обращение на ты + НЕ
+	else if(message.includes("не") && youMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Это не про меня`,
+				`Я? Да не`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
+	}	
+		//обращение на ты
+	else if(youMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Я?`,
+				`Кто, я?`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
+	}
+		//говорят про твой, твоя и тд + НЕ
+	else if(message.includes("не") && youPossessiveMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`А не ${youPossessiveMatch[0]}?`,
+				`${youPossessiveMatch[0]}? Да не`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
+	}		
+		//говорят про твой, твоя и тд
+	else if(youPossessiveMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`${youPossessiveMatch[0]}?`,
+				`${youPossessiveMatch[0]}? Ну да`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
+	}
+		//пользователь говорит про себя + НЕ
+	else if(message.includes("не") && meMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`К тебе не относится, ну да`,
+				`Конечно, не с тобой связано`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
+	}	
+		//пользователь говорит про себя
+	else if(meMatch.length != 0 ||mePossessMatch.length != 0){
+		wowFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Про тебя и не такое говорят`,
+				`Иначе у тебя не бывает`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
+	}		
+
 //АБСОЛЮТНОЕ НЕПОНИМАНИЕ
 	else{
 		misunderstandingFaceDisplay()
 		setTimeout(() => {
 			const answers = [
-				`${binderPhrases[randomArrayNumber(binderPhrases)]} ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}, но ${toLowerCaseAnswer(noIdeaMessages[randomArrayNumber(noIdeaMessages)])}`,
+				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
 				`${noIdeaMessages[randomArrayNumber(noIdeaMessages)]}`,
