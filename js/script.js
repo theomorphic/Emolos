@@ -1001,6 +1001,7 @@ basicMode() //активировано
 	//отдельные слова и категории
 	const positiveDescriptionMatch = positiveDescriptionWords.filter(element => message.includes(element));
 	const descriptionWordsMatch = descriptionWords.filter(element => message.includes(element));
+	const musicDescriptionMatch = musicDescription.filter(element => message.includes(element));
 	const conjunctionMatch = conjunction.filter(element => message.includes(element));
 	const randomSmilesMatch = randomSmiles.filter(element => message.includes(element));
 	const weatherWordsMatch = weatherWords.filter(element => message.includes(element));
@@ -2170,11 +2171,23 @@ basicMode() //активировано
 	}
 		//слова для описания
 	else if(descriptionWordsMatch.length != 0 ){
-		lookingFaceDisplay()
+		wowFaceDisplay()
 		setTimeout(() => {
 			let answers =[
 				`${descriptionWordsMatch[0]}?`,
 				`${descriptionWordsMatch[0]}!`,
+			]
+				let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1400);
+	}	
+		//слова для описания музыки
+	else if(musicDescriptionMatch.length != 0 ){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`${musicDescriptionMatch[0]}?`,
+				`${musicDescriptionMatch[0]}!`,
 			]
 				let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))

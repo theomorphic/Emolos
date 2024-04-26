@@ -55,11 +55,12 @@ export{movieTitles}
 
 //слова кино, фильмы
 const movieWords = [
+
 	"movie","movies",
 	"film","films",
 	"cinema","cinemas",
 	"кино","cinéma",
-	"фильм","фильмы"
+	"фильм","фильмы","фильма","фильмов","фильму","фильмам","фильмом","фильмами","фильме","фильмах",
 ]
 export{movieWords}
 
