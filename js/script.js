@@ -139,8 +139,8 @@
 	import { drinksBadNames as drinksBadNames } from "./categories/drinks.js";
 	import { drinksQuestions as drinksQuestions } from "./categories/drinks.js";
 	//описание напитков
-	import {animalWords as animalWords} from "./categories.js";
-	import {animalDescription as animalDescription} from "./categories.js";
+	import { animalWords as animalWords } from "./categories.js";
+	import { animalDescription as animalDescription } from "./categories.js";
 	import { animalQuestions as animalQuestions } from "./categories.js";
 	//описание животных
 	import { natureWords as natureWords } from "./categories.js";
@@ -158,6 +158,7 @@
 	import { movieTitles as movieTitles } from "./categories/movies.js";
 	import { movieWords as movieWords } from "./categories/movies.js";
 	import { movieMessages as movieMessages } from "./categories/movies.js";
+	import { directorsNames as directorsNames } from "./categories/movies.js";
 	//кино
 
 //ОТДЕЛЬНЫЕ ГЛАГОЛЫ
@@ -987,6 +988,7 @@ basicMode() //активировано
 	//искусство: кино, музыка
 	const musicMatch = musicGenres.filter(element => message.includes(element));
 	const movieWordsMatch = movieWords.filter(element => message.includes(element));
+	const directorsNamesMatch = directorsNames.filter(element => message.includes(element));
 
 	//мотивационные цитаты
 	const quoteMatch = quotesAsking.filter(element => message.includes(element));
@@ -1556,6 +1558,20 @@ basicMode() //активировано
 						
 			}, 1300);
 	}
+		//упомянули режиссеров
+	else if(directorsNamesMatch.length != 0){
+		laughingFaceDisplay()
+		setTimeout(() => {
+			let answers = [
+				`${toUpperCaseAnswer(directorsNamesMatch[0])}? Хороший режиссёр.`,
+				`${toUpperCaseAnswer(directorsNamesMatch[0])}? Хороший режиссёр. Кстати, а ${toLowerCaseAnswer(movieMessages[randomArrayNumber(movieMessages)])}`,
+				`${toUpperCaseAnswer(directorsNamesMatch[0])}? Последние фильмы так себе.`,
+				`${toUpperCaseAnswer(directorsNamesMatch[0])}? Последние работы смотрятся легко и выглядят ${positiveDescriptionWords[randomArrayNumber(positiveDescriptionWords)]}`,
+				]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1300);
+	}	
 		//жанры в целом
 	else if(message.includes("genre") || message.includes("genres")){
 			setTimeout(() => {
