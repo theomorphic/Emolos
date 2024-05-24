@@ -116,6 +116,15 @@
 	import { losCallingMessages as losCallingMessages } from "./files/los.js";
 	//назвали самого Лося
 
+	import { godWords as godWords } from "./categories.js";
+	// реакция на бога
+	import { family as family } from "./categories/family.js";
+	// реакция на семью
+	import { father as father } from "./categories/family.js";
+	// реакция на отца
+	import { mother as mother } from "./categories/family.js";
+	// реакция на маму
+
 	import { youWords as youWords } from "./response.js";
 	//обращение напрямую к боту
 	import { youPossessiveWords as youPossessiveWords } from "./response.js";
@@ -176,13 +185,17 @@
 	import { verbSpeak as verbSpeak } from "./verbs.js";
 	//глагол говорить
 	import { verbLaugh as verbLaugh } from "./verbs.js";
-	//смеяться
+	//глагол смеяться
 	import { verbAsk as verbAsk } from "./verbs.js";
-	//спрашивать
+	//глагол спрашивать
 	import { verbFeelingBad as verbFeelingBad } from "./verbs.js";
 	//злиться, грустить и тд
 	import { verbThank as verbThank } from "./verbs.js";
-	//благодарить
+	//глагол благодарить
+	import { verbBelieve as verbBelieve } from "./verbs.js";
+	//глагол верить
+	import { verbEat as verbEat } from "./verbs.js";
+	// глагол кушать
 
 //ФУНКЦИИ ГРАФИЧЕСКОГО ИНТЕРФЕЙСА
 
@@ -970,6 +983,10 @@ basicMode() //активировано
 	const losCallingMatch = losCallingWords.filter(element => message.includes(element));
 	const sysaMatch = sysa.filter(element => message.includes(element));
 	const duncanMatch = duncan.filter(element => message.includes(element));
+	const godMatch = godWords.filter(element => message.includes(element));
+	const familyMatch = family.filter(element => message.includes(element));
+	const fatherMatch = father.filter(element => message.includes(element));
+	const motherMatch = mother.filter(element => message.includes(element));
 
 	//категории познаний
 	const foodWordsMatch = foodWords.filter(element => message.includes(element));
@@ -1022,6 +1039,8 @@ basicMode() //активировано
 	const verbAskMatch = verbAsk.filter(element => message.includes(element));
 	const verbFeelingBadMatch = verbFeelingBad.filter(element => message.includes(element));
 	const verbThankMatch = verbThank.filter(element => message.includes(element));
+	const verbBelieveMatch = verbBelieve.filter(element => message.includes(element));
+	const verbEatMatch = verbEat.filter(element => message.includes(element));
 
 //ОСКОРБЛЕНИЯ, ГРУБОСТЬ
 		//личное грубое оскорбление Лосю
@@ -1149,7 +1168,33 @@ basicMode() //активировано
 			let answer = `${verbFeelingBadMatch[0]}? Это не про меня`;
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1400);
-	}						
+	}
+		//спросить Лося про веру в бога
+	else if(godMatch.length != 0 && youMatch.length != 0 && verbBelieveMatch.length != 0){
+		tiredFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Хочешь подвести к ютубовскому мнению?`,
+				`Скажу прямо, я изменил свои взгляды на религию за последнее время`,
+				`Можно сказать, что я вероотступник`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}
+		//сказать, что Лось бог
+	else if(godMatch.length != 0 && youMatch.length != 0){
+		laughingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Да, это так`,
+				`Про меня можно так сказать`,
+				`Для тебя да`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}							
 //ПРИВЕТСТВИЕ И ПРОЩАНИЕ
 		//приветствие
 	else if(greetingsMatch.length != 0){
@@ -1270,11 +1315,65 @@ basicMode() //активировано
 			let answer = duncanMessages[randomArrayNumber(duncanMessages)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1500);
+	}	
+		//заговорили про бога
+	else if(godMatch.length != 0){
+		shockingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Не богохульствуй мне тут`,
+				`Не упомянай Бога всуе`,
+				`Мне не очень интересно говорить про Бога`,
+				`Религия - это пройденный этап`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}
+		//заговорили про семью
+	else if(familyMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`${familyMatch[0]}? Тут грубить не надо`,
+				`${familyMatch[0]}? Что ты говоришь?`,
+				`Про семью плохо не говори`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}
+		//заговорили про маму
+	else if(motherMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`${motherMatch[0]}. Ничего плохого про неё не говори`,
+				`${motherMatch[0]}? Не приплетай её тут`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
 	}			
+		//заговорили про папу
+	else if(fatherMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`${fatherMatch[0]}. Его не трогай`,
+				`${fatherMatch[0]}? Он человек простой`,
+				`Я с ним не общаюсь`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}	
+
 //КАТЕГОРИИ ПОЗНАНИЙ
 		//еда
 		//любимые блюда Лося
-	else if(youMatch.length != 0 && foodMatch.length != 0){
+	else if(youMatch.length != 0 && foodMatch.length != 0 && verbEatMatch.length !=0){
+		laughingFaceDisplay()
 		setTimeout(() => {
 			let answers =[
 				`${foodMatch[0]}? Это неплохо, но я люблю вафельные трубочки`,
@@ -1284,9 +1383,10 @@ basicMode() //активировано
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))			
 		}, 1300);
-	}
+	}	
 		//любишь еду?
-	else if(foodWordsMatch.length != 0 && verbLoveMatch.length != 0){
+	else if((foodWordsMatch.length != 0 && verbLoveMatch.length != 0) || (youMatch.length !=0 && foodWordsMatch.length != 0 && verbLoveMatch.length != 0)){
+		laughingFaceDisplay()
 		setTimeout(() => {
 			let answers =[
 				`${foodWordsMatch[0]}. Люблю трубочки`,
@@ -1295,7 +1395,7 @@ basicMode() //активировано
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))			
 		}, 1300);
-	}
+	}	
 		//разгоны про специи
 	else if(spiceNamesMatch.length != 0){
 		shockingFaceDisplay()
@@ -1307,7 +1407,20 @@ basicMode() //активировано
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1300);
-	}						
+	}
+		//назвать лося едой
+	else if(youMatch.length != 0 && foodMatch.length != 0){
+		tiredFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Сам ты ${foodMatch[0]}`,
+				`Про себя говоришь сейчас`,
+				`Очень смешно, ${foodMatch[0]}`
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))			
+		}, 1300);
+	}							
 //словарь еды на перевод			
 		//разгоны про еду
 	else if(foodMatch.length != 0){
@@ -1316,6 +1429,7 @@ basicMode() //активировано
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1300);
 	}
+	
 //словарь напитков на добавление		
 		//разгоны про напитки
 	else if(drinksNamesMatch.length != 0){
@@ -2333,6 +2447,19 @@ basicMode() //активировано
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1400);	
+	}
+		//кушать
+	else if(verbEatMatch.length != 0){
+		shockingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`${verbEatMatch[0]}? Да не`,
+				"Это не для моего желудка",
+				"Может и кушаю, а что?",
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+		}, 1400);	
 	}						
 		//просто НЕ
 	else if(message.includes("не")){
@@ -2373,8 +2500,10 @@ basicMode() //активировано
 		lookingFaceDisplay()
 		setTimeout(() => {
 			let answers =[
-				`Я?`,
-				`Кто, я?`,
+				`${disagreeWords[randomArrayNumber(disagreeWords)]}`,
+				`${agreeWords[randomArrayNumber(agreeWords)]}`,
+				`Я что ли?`,
+				`Про себя говоришь скорее`,
 			]
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
