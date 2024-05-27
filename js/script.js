@@ -170,6 +170,8 @@
 	import { movieMessages as movieMessages } from "./categories/movies.js";
 	import { directorsNames as directorsNames } from "./categories/movies.js";
 	//кино
+	import { sportWords as sportWords } from "./categories.js";
+	//спорт
 
 //ОТДЕЛЬНЫЕ ГЛАГОЛЫ
 	import { verbLove as verbLove } from "./verbs.js";
@@ -196,6 +198,10 @@
 	//глагол верить
 	import { verbEat as verbEat } from "./verbs.js";
 	// глагол кушать
+	import { verbKnow as verbKnow } from "./verbs.js";
+	//глагол понимать
+	import { verbSorry as verbSorry } from "./verbs.js";
+	//глагол извиняться
 
 //ФУНКЦИИ ГРАФИЧЕСКОГО ИНТЕРФЕЙСА
 
@@ -339,6 +345,7 @@ blinking() //активировано
 
 		tiredFace.style.display = "none";
 		tiredFace.style.width = "0";
+
 	}
 
 	//показ мёртвого взгляда Лося
@@ -350,9 +357,6 @@ blinking() //активировано
 	
 		deadLookingFace.style.display = "block";
 		deadLookingFace.style.width = ""
-	
-		statusSign.textContent = "Не в сети";
-	
 	}
 
 	//показ стандартного лица
@@ -392,6 +396,7 @@ blinking() //активировано
 
 		tiredFace.style.display = "none";
 		tiredFace.style.width = "0";
+
 	}
 
 	//показ мёртвого лица
@@ -469,7 +474,6 @@ blinking() //активировано
 
 			tiredFace.style.display = "none";
 			tiredFace.style.width = "0";
-
 		}
 
 
@@ -554,6 +558,7 @@ blinking() //активировано
 
 			tiredFace.style.display = "none";
 			tiredFace.style.width = "0";
+
 		}
 	}
 
@@ -595,9 +600,7 @@ blinking() //активировано
 			laughingFace.style.width = "0";
 
 			tiredFace.style.display = "none";
-			tiredFace.style.width = "0";
-
-			
+			tiredFace.style.width = "0";	
 		}
 	}
 
@@ -683,7 +686,6 @@ blinking() //активировано
 
 			tiredFace.style.display = "none";
 			tiredFace.style.width = "0";
-
 		}
 	}
 
@@ -726,7 +728,6 @@ blinking() //активировано
 
 			tiredFace.style.display = "block";
 			tiredFace.style.width = "";
-
 		}
 	}
 	
@@ -1010,6 +1011,9 @@ basicMode() //активировано
 	const genreMatch = genre.filter(element => message.includes(element));
 	const musicWordMatch = musicWord.filter(element => message.includes(element));
 
+	//спорт
+	const sportWordsMatch = sportWords.filter(element => message.includes(element));
+
 	//мотивационные цитаты
 	const quoteMatch = quotesAsking.filter(element => message.includes(element));
 
@@ -1041,6 +1045,8 @@ basicMode() //активировано
 	const verbThankMatch = verbThank.filter(element => message.includes(element));
 	const verbBelieveMatch = verbBelieve.filter(element => message.includes(element));
 	const verbEatMatch = verbEat.filter(element => message.includes(element));
+	const verbKnowMatch = verbKnow.filter(element => message.includes(element));
+	const verbSorryMatch = verbSorry.filter(element => message.includes(element));
 
 //ОСКОРБЛЕНИЯ, ГРУБОСТЬ
 		//личное грубое оскорбление Лосю
@@ -1194,7 +1200,69 @@ basicMode() //активировано
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))	
 		}, 1500);
-	}							
+	}
+		//не понимает ли Лось
+	else if(verbKnowMatch.length != 0 && message.includes("не") && youMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`"Не ${verbKnowMatch[0]}", смешно написал. Сам-то понял?`,
+				`Ну не понимаю, и что дальше`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}		
+		//понимает ли Лось
+	else if(verbKnowMatch.length != 0 && youMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Да`,
+				`Я понимаю`,
+				`${verbKnowMatch[0]}? Естественно`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}
+		//пользователь не понимает
+	else if(verbKnowMatch.length != 0 && message.includes("не") && meMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Да ты никогда не понимаешь`,
+				`Тебе этого не понять`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}	
+		//пользователь понимает
+	else if(verbKnowMatch.length != 0 && meMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Ну, молодец, знаешь много`,
+				`Хорошо разбираешься`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}
+		//пользователь извиняется
+	else if(verbSorryMatch.length != 0 && meMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Твои извинения приняты`,
+				`Тебе не привыкать извиняться`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}		
+	
 //ПРИВЕТСТВИЕ И ПРОЩАНИЕ
 		//приветствие
 	else if(greetingsMatch.length != 0){
@@ -1343,6 +1411,30 @@ basicMode() //активировано
 			chatbotSendMessage(toUpperCaseAnswer(answer))	
 		}, 1500);
 	}
+	//курит ли мама
+	else if(motherMatch.length != 0 && verbSmokeMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Ты с ума сошел? Она не курит`,
+				`Моя мама никогда не курила`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}
+	//пьет ли мама
+	else if(motherMatch.length != 0 && verbDrinkMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Мама никогда не пьет`,
+				`Она не употребляет алкоголь`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}	
 		//заговорили про маму
 	else if(motherMatch.length != 0){
 		lookingFaceDisplay()
@@ -1354,7 +1446,32 @@ basicMode() //активировано
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))	
 		}, 1500);
-	}			
+	}	
+	//курит ли отец
+	else if(fatherMatch.length != 0 && verbSmokeMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Батя давно не курит`,
+				`Он давно бросил`,
+				`Нет`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}
+	//пьет ли отец
+	else if(fatherMatch.length != 0 && verbDrinkMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Только по праздникам`,
+				`Он в завязке`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}					
 		//заговорили про папу
 	else if(fatherMatch.length != 0){
 		lookingFaceDisplay()
@@ -1368,6 +1485,7 @@ basicMode() //активировано
 			chatbotSendMessage(toUpperCaseAnswer(answer))	
 		}, 1500);
 	}	
+
 
 //КАТЕГОРИИ ПОЗНАНИЙ
 		//еда
@@ -1731,6 +1849,31 @@ basicMode() //активировано
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1200);		
 	}
+//СПОРТ
+	//Лось и спорт
+	else if(sportWordsMatch.length != 0 && youMatch.length !=0){
+		tiredFaceDisplay()
+		setTimeout(() => {
+			let answers = [
+				`${sportWordsMatch[0]}? Я таким не занимаюсь`,
+				`Это уже не для меня`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))		
+		}, 1200);		
+	}
+	//просто спорт
+	else if(sportWordsMatch.length != 0){
+		tiredFaceDisplay()
+		setTimeout(() => {
+			let answers = [
+				`Спорт для детей и фанатиков`,
+				`${sportWordsMatch[0]}? Я больше этим не интересуюсь`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))		
+		}, 1200);		
+	}		
 //ШУТКИ	
 		//Лося назвали шуткой
 	else if(jokesMatch.length != 0 && youMatch.length !=0){
@@ -2355,6 +2498,7 @@ basicMode() //активировано
 		setTimeout(() => {
 			let answers =[
 				`${conjunctionMatch[0]}?`,
+				`${conjunctionMatch[0]}? Поувереннее пиши`,
 				`${conjunctionMatch[0]}, да?`,
 			]
 			let answer = answers[randomArrayNumber(answers)];
@@ -2460,7 +2604,34 @@ basicMode() //активировано
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1400);	
-	}						
+	}	
+		//понимать
+	else if(verbKnowMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Ясно`,
+				`Это понятно`,
+				`Да, я в курсе`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}
+		//извиняться
+	else if(verbSorryMatch.length != 0){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Никаких извинений`,
+				`Извинения для сосунков`,
+				`Никакого прощения`,
+
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))	
+		}, 1500);
+	}								
 		//просто НЕ
 	else if(message.includes("не")){
 		lookingFaceDisplay()
@@ -2556,7 +2727,19 @@ basicMode() //активировано
 			let answer = answers[randomArrayNumber(answers)];
 			chatbotSendMessage(toUpperCaseAnswer(answer))
 		}, 1300);
-	}		
+	}
+		//пользователь говорит про себя + НЕ
+	else if(message.includes("умри")){
+		lookingFaceDisplay()
+		setTimeout(() => {
+			let answers =[
+				`Слушаюсь, повелитель`,
+			]
+			let answer = answers[randomArrayNumber(answers)];
+			chatbotSendMessage(toUpperCaseAnswer(answer))
+			deadFaceDisplay()
+		}, 1300);
+	}				
 
 //АБСОЛЮТНОЕ НЕПОНИМАНИЕ
 	else{
