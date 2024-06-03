@@ -1614,17 +1614,12 @@ basicMode() //активировано
 		//общий вопрос про музыку лично Лосю
 	else if(musicWordMatch.length != 0 && (youPossessiveMatch.length != 0 || youMatch.length != 0)){
 		shockingFaceDisplay()
-
 			setTimeout(() => {
-
 				let answers = [
-					`Papa Smurf likes instrumental, of course, blues and ${musicGenres[randomArrayNumber(musicGenres)]}`,
-					`Oh, talking about music. Papa Smurf thinks that he likes instrumental, blues and ${musicGenres[randomArrayNumber(musicGenres)]}`,
-					`Well, it's instrumental, blues and maybe ${musicGenres[randomArrayNumber(musicGenres)]}`,
-					`I like blues. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} and ${musicGenres[randomArrayNumber(musicGenres)]} are ${musicDescription[randomArrayNumber(musicDescription)]}. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is ${musicDescription[randomArrayNumber(musicDescription)]}`,
-					`Blues is number one. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} and ${musicGenres[randomArrayNumber(musicGenres)]} are ${musicDescription[randomArrayNumber(musicDescription)]}. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is ${musicDescription[randomArrayNumber(musicDescription)]}`,
-				]
-						
+					`Я почти ничего не слушаю в последнее время, разве что ${musicGenres[randomArrayNumber(musicGenres)]}`,
+					`Говоря про музыку, мне нравится что-то потяжелее, типа Металлики`,
+					`Душа лежит не слушать, а создавать музыку. Но мне не охото разбираться в чувствах`,
+				]		
 				let answer = answers[randomArrayNumber(answers)];
 				chatbotSendMessage(toUpperCaseAnswer(answer))
 						
@@ -1658,12 +1653,9 @@ basicMode() //активировано
 			setTimeout(() => {
 
 				let answers = [
-					`Oh, talking about music. Papa Smurf thinks that he likes instrumental, blues and ${musicGenres[randomArrayNumber(musicGenres)]}`,
-					`You strike me as a ${musicGenres[randomArrayNumber(musicGenres)]} lover. Am I right?`,
-					`Any specific genre you do you like to listen to? ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])}?`,
-					`Music! ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is so ${musicDescription[randomArrayNumber(musicDescription)]}`,
-					`${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])}?`,
-					`${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} is very ${musicDescription[randomArrayNumber(musicDescription)]}`,
+					`Кажется, ты любишь слшуать ${musicGenres[randomArrayNumber(musicGenres)]}, не правда ли?`,
+					`Есть особые жанры, которые тебе нравятся? ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])}?`,
+					`А, музыка. ${toUpperCaseAnswer(musicGenres[randomArrayNumber(musicGenres)])} звучит очень ${musicDescription[randomArrayNumber(musicDescription)]}`,
 				]
 						
 				let answer = answers[randomArrayNumber(answers)];
